@@ -4,4 +4,3 @@ dist
 cache
 .idea
 .nvmdrc
-package-lock.json
