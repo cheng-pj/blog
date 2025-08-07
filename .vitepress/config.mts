@@ -6,35 +6,37 @@ export default defineConfig({
   description: 'A VitePress Site',
   cleanUrls: true,
   base: '/note/',
+  srcDir: 'src',
+  
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '主页', link: '/' },
-      { text: '笔记', link: '/src/我的笔记' }
+      { text: '笔记', link: '我的笔记' }
     ],
     
     sidebar: [
       {
         text: '笔记',
         items: [
-          { text: '开发总结', link: '/src/开发总结' },
-          { text: 'js', link: '/src/JavaScript基础' },
-          { text: 'HTML+CSS', link: '/src/HTML+CSS' },
-          { text: 'Vue2', link: '/src/Vue2' },
-          { text: 'Vue3', link: '/src/Vue3' },
-          { text: 'jQuery', link: '/src/jQuery' },
-          { text: 'Git', link: '/src/Git' },
-          { text: '环境搭建', link: '/src/环境搭建' },
-          { text: '软件破解教程', link: '/src/软件破解教程' },
-          { text: '小程序', link: '/src/小程序' },
-          { text: 'Flutter', link: '/src/Flutter' },
-          { text: 'Java 核心', link: '/src/Java 核心' },
-          { text: 'Linux', link: '/src/Linux' },
-          { text: 'Restful 文档', link: '/src/Restful 文档' },
-          { text: '表格类工具', link: '/src/表格类工具' },
-          { text: 'MyBatis', link: '/src/MyBatis' },
-          { text: 'Spring', link: '/src/Spring' },
-          { text: '视频合并', link: '/src/视频合并' }
+          { text: '开发总结', link: '开发总结' },
+          { text: 'js', link: 'JavaScript基础' },
+          { text: 'HTML+CSS', link: 'HTML+CSS' },
+          { text: 'Vue2', link: 'Vue2' },
+          { text: 'Vue3', link: 'Vue3' },
+          { text: 'jQuery', link: 'jQuery' },
+          { text: 'Git', link: 'Git' },
+          { text: '环境搭建', link: '环境搭建' },
+          { text: '软件破解教程', link: '软件破解教程' },
+          { text: '小程序', link: '小程序' },
+          { text: 'Flutter', link: 'Flutter' },
+          { text: 'Java 核心', link: 'Java 核心' },
+          { text: 'Linux', link: 'Linux' },
+          { text: 'Restful 文档', link: 'Restful 文档' },
+          { text: '表格类工具', link: '表格类工具' },
+          { text: 'MyBatis', link: 'MyBatis' },
+          { text: 'Spring', link: 'Spring' },
+          { text: '视频合并', link: '视频合并' }
         ]
       }
     ],
