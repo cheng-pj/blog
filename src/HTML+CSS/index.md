@@ -1,3 +1,5 @@
+# HTML+CSS
+
 ## meta 标签
 
 ```html
@@ -351,36 +353,41 @@
 #### MDUI
 
 ```css
-transition: all .3s cubic-bezier(0, 0, 0.2, 1);
+.a {
+  transition: all .3s cubic-bezier(0, 0, 0.2, 1);
+}
 ```
 
 #### Bootstrap
 
 ```css
-transition:width .6s ease;  /*适用于进度条*/
+.a {
+  transition:width .6s ease;  /*适用于进度条*/
+}
 ```
 
 #### GitHub
 
 ```css
-@media (max-width: 1011px)
-	.site-navigation {
-		width: 100%;
-		position: fixed;
-		height: 100%;
-		top: 0;
-		right: 0;
-		z-index: 9;
-		background: #111416;
-		-webkit-transition: -webkit-transform 1s cubic-bezier(.16,1,.3,1);
-		transition: -webkit-transform 1s cubic-bezier(.16,1,.3,1);
-		transition: transform 1s cubic-bezier(.16,1,.3,1);
-		transition: transform 1s cubic-bezier(.16,1,.3,1),-webkit-transform 1s cubic-bezier(.16,1,.3,1);
-		-webkit-transform: translate3d(100%,0,0);
-		transform: translate3d(65%,0,0);
-		overflow-y: auto;
-		display: none;
-	}
+@media (max-width: 1011px) {
+  .a {
+    width: 100%;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: 9;
+    background: #111416;
+    -webkit-transition: -webkit-transform 1s cubic-bezier(.16,1,.3,1);
+    transition: -webkit-transform 1s cubic-bezier(.16,1,.3,1);
+    transition: transform 1s cubic-bezier(.16,1,.3,1);
+    transition: transform 1s cubic-bezier(.16,1,.3,1),-webkit-transform 1s cubic-bezier(.16,1,.3,1);
+    -webkit-transform: translate3d(100%,0,0);
+    transform: translate3d(65%,0,0);
+    overflow-y: auto;
+    display: none;
+  }
+}
 ```
 
 
@@ -423,7 +430,7 @@ transition:width .6s ease;  /*适用于进度条*/
 >   使用`>`运算符将元素嵌套在彼此内：
 
 
-```html
+```md
 div>ul>li
 ```
 
@@ -439,7 +446,7 @@ div>ul>li
 
 >   使用`+`运算符将元素放在彼此附近，在同一级别上：
 
-```html
+```md
 div+p+p
 ```
 
@@ -453,7 +460,7 @@ div+p+p
 
 >   使用`^`运算符，您可以爬上树的一个级别并更改应显示以下元素的上下文：
 
-```html
+```md
 div+div>p>span^em == div+div>(p>span)+em	/*两者相等*/
 ```
 
@@ -476,17 +483,18 @@ div+div>p>span+em^^^div
 
 >   使用`*`运算符，您可以定义元素的输出次数：
 
-```html
+```md
 ul>li*5
 ```
 
 ```html
+
 <ul>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
 </ul>
 ```
 
@@ -499,16 +507,17 @@ div>(header>ul>li*2>a)+footer>p
 ```
 
 ```html
+
 <div>
-    <header>
-        <ul>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-        </ul>
-    </header>
-    <footer>
-        <p></p>
-    </footer>
+  <header>
+    <ul>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+    </ul>
+  </header>
+  <footer>
+    <p></p>
+  </footer>
 </div>
 ```
 
@@ -517,18 +526,19 @@ div>(header>ul>li*2>a)+footer>p
 ```
 
 ```html
+
 <div>
-    <dl>
-        <dt></dt>
-        <dd></dd>
-        <dt></dt>
-        <dd></dd>
-        <dt></dt>
-        <dd></dd>
-    </dl>
+  <dl>
+    <dt></dt>
+    <dd></dd>
+    <dt></dt>
+    <dd></dd>
+    <dt></dt>
+    <dd></dd>
+  </dl>
 </div>
 <footer>
-    <p></p>
+  <p></p>
 </footer>
 ```
 
@@ -621,12 +631,15 @@ a{Click me}
 ::-webkit-input-placeholder {
   color: red;
 }
+
 :-moz-placeholder {/* Firefox 18- */
   color: red;
 }
+
 ::-moz-placeholder{/* Firefox 19+ */
  color: red;
 }
+
 :-ms-input-placeholder {
   color: red;
 }
@@ -637,25 +650,25 @@ a{Click me}
 ```css
 /*定义滚动条高宽及背景高宽分别对应横竖滚动条的尺寸*/
 &::-webkit-scrollbar {
-    width: 10px;
-    height: 3px;
+  width: 10px;
+  height: 3px;
 }
 
 /*定义滑块颜色+圆角*/
 &::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background-color: rgba(144, 147, 153, .3);
-    cursor: pointer;
+  border-radius: 10px;
+  background-color: rgba(144, 147, 153, .3);
+  cursor: pointer;
 }
 
 /*定义滚动条轨道内阴影+圆角*/
 &::-webkit-scrollbar-track {
-    border-radius: 10px;
-    background-color: #ffffff;
+  border-radius: 10px;
+  background-color: #ffffff;
 }
 
 &::-webkit-scrollbar-button {
-    display: none;
+  display: none;
 }
 ```
 
@@ -663,70 +676,70 @@ a{Click me}
 
 ```css
 @media (min-width: 576px) {
-    .mr-sm-2, .mx-sm-2 {
-        margin-right: .5rem !important;
-    }
+  .mr-sm-2, .mx-sm-2 {
+    margin-right: .5rem !important;
+  }
 }
 
 .custom-control-input {
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
 }
 
 .custom-control-label::before {
-    position: absolute;
-    top: .25rem;
-    left: 0;
-    display: block;
-    width: 1rem;
-    height: 1rem;
-    pointer-events: none;
-    content: "";
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-color: #dee2e6;
+  position: absolute;
+  top: .25rem;
+  left: 0;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  pointer-events: none;
+  content: "";
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #dee2e6;
 }
 
 .custom-control-label::after {
-    position: absolute;
-    top: .25rem;
-    left: 0;
-    display: block;
-    width: 1rem;
-    height: 1rem;
-    content: "";
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 50% 50%;
+  position: absolute;
+  top: .25rem;
+  left: 0;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  content: "";
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
 }
 
 .custom-control {
-    position: relative;
-    display: block;
-    min-height: 1.5rem;
-    padding-left: 1.5rem;
+  position: relative;
+  display: block;
+  min-height: 1.5rem;
+  padding-left: 1.5rem;
 }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
 }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
-    background-color: #007bff;
+  background-color: #007bff;
 }
 
 .custom-checkbox .custom-control-label::before {
-    border-radius: .25rem;
+  border-radius: .25rem;
 }
 ```
 
 ```html
 <div class="custom-control custom-checkbox mr-sm-2">
-   <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-   <label class="custom-control-label" for="customControlAutosizing">单选多选按钮</label>
+  <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+  <label class="custom-control-label" for="customControlAutosizing">单选多选按钮</label>
 </div>
 ```
 
@@ -779,27 +792,31 @@ a{Click me}
 ## 苹果毛玻璃
 
 ```css
--webkit-backdrop-filter: saturate(180%) blur(20px);
-backdrop-filter: saturate(180%) blur(20px);
-background-color: rgba(255,255,255,0.7);
+.a {
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  background-color: rgba(255,255,255,0.7);
+}
 ```
 
 ## 微软输入框样式
 
 ```css
-border-bottom: 2px solid var(--cr-input-focus-color);
-border-radius: var(--cr-input-underline-border-radius, 0);
-bottom: 0;
-box-sizing: border-box;
-display: var(--cr-input-underline-display);
-height: var(--cr-input-underline-height, 0);
-left: 0;
-margin: auto;
-opacity: 1;
-position: absolute;
-right: 0;
-transition: opacity 120ms ease-out, width 0s linear 180ms;
-width: 100%;
+.a {
+  border-bottom: 2px solid var(--cr-input-focus-color);
+  border-radius: var(--cr-input-underline-border-radius, 0);
+  bottom: 0;
+  box-sizing: border-box;
+  display: var(--cr-input-underline-display);
+  height: var(--cr-input-underline-height, 0);
+  left: 0;
+  margin: auto;
+  opacity: 1;
+  position: absolute;
+  right: 0;
+  transition: opacity 120ms ease-out, width 0s linear 180ms;
+  width: 100%;
+}
 ```
 
 ## 动画优化
@@ -813,17 +830,21 @@ width: 100%;
 ### 渐变文字
 
 ```css
-background: linear-gradient(180deg, #fff, #ffffff4f);
-background-clip: text;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+.a {
+  background: linear-gradient(180deg, #fff, #ffffff4f);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 ```
 
 ### 渐变按钮
 
 ```css
-background: radial-gradient(141.42% 141.42% at 100% 0%, #fff6, #fff0), radial-gradient(140.35% 140.35% at 100% 94.74%, #bd34fe, #bd34fe00), radial-gradient(89.94% 89.94% at 18.42% 15.79%, #41d1ff, #41d1ff00);
-box-shadow: 0 1px #ffffffbf inset;
+.a {
+  background: radial-gradient(141.42% 141.42% at 100% 0%, #fff6, #fff0), radial-gradient(140.35% 140.35% at 100% 94.74%, #bd34fe, #bd34fe00), radial-gradient(89.94% 89.94% at 18.42% 15.79%, #41d1ff, #41d1ff00);
+  box-shadow: 0 1px #ffffffbf inset;
+}
 ```
 
 ## overscroll-behavior
@@ -831,18 +852,20 @@ box-shadow: 0 1px #ffffffbf inset;
 **`overscroll-behavior`** CSS 属性是 [`overscroll-behavior-x`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/overscroll-behavior-x) 和 [`overscroll-behavior-y`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/overscroll-behavior-y) 属性的合并写法，让你可以控制浏览器过度滚动时的表现——也就是滚动到边界。
 
 ```css
-/* 关键字的值 */
-overscroll-behavior: auto; /* 默认 */
-overscroll-behavior: contain;
-overscroll-behavior: none;
+.a {
+  /* 关键字的值 */
+  overscroll-behavior: auto; /* 默认 */
+  overscroll-behavior: contain;
+  overscroll-behavior: none;
 
-/* 使用 2 个值 */
-overscroll-behavior: auto contain;
+  /* 使用 2 个值 */
+  overscroll-behavior: auto contain;
 
-/* Global values */
-overflow: inherit;
-overflow: initial;
-overflow: unset;
+  /* Global values */
+  overflow: inherit;
+  overflow: initial;
+  overflow: unset;
+}
 ```
 
 ### [值](https://developer.mozilla.org/zh-CN/docs/Web/CSS/overscroll-behavior#值)

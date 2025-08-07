@@ -211,23 +211,23 @@ module.exports = {
     // configureWebpack : Object | Function
     css: {
         /**
-		 * 默认情况下，只有 *.module.[ext] 结尾的文件才会被视作 CSS Modules 模块。
-		 * 设置为 true 后你就可以去掉文件名中的 .module 并将所有的 *.(css|scss|sass|less|styl(us)?) 文件视为 CSS Modules 模块。
+		 * 默认情况下，只有 *.module.[ext] 结尾的文件才会被视作 HTML+CSS Modules 模块。
+		 * 设置为 true 后你就可以去掉文件名中的 .module 并将所有的 *.(css|scss|sass|less|styl(us)?) 文件视为 HTML+CSS Modules 模块。
 		 */
         modules: false,
         /**
 		 * Type: boolean | Object
 		 * Default: 生产环境下是 true，开发环境下是 false
-		 * 是否将组件中的 CSS 提取至一个独立的 CSS 文件中 (而不是动态注入到 JavaScript 中的 inline 代码)。
+		 * 是否将组件中的 HTML+CSS 提取至一个独立的 HTML+CSS 文件中 (而不是动态注入到 JavaScript 中的 inline 代码)。
 		 * https://cli.vuejs.org/zh/config/#css-extract
 		 */
         extract: false,
         /**
-		 * 是否为 CSS 开启 source map。设置为 true 之后可能会影响构建的性能。
+		 * 是否为 HTML+CSS 开启 source map。设置为 true 之后可能会影响构建的性能。
 		 */
         sourceMap: false,
         /**
-		 * 向 CSS 相关的 loader 传递选项。
+		 * 向 HTML+CSS 相关的 loader 传递选项。
 		 */
         loaderOptions: {
             css: {
@@ -718,7 +718,7 @@ export default new Router({
 ### 2、css引用图片不显示 `	build\utils.js`
 
 ````js
-// Extract CSS when that option is specified 	指定该选项时提取CSS
+// Extract HTML+CSS when that option is specified 	指定该选项时提取CSS
 // (which is the case during production build) 	(在生产构建期间就是这种情况)
 if (options.extract) {
     return ExtractTextPlugin.extract({
