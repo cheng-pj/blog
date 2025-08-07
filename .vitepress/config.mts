@@ -4,6 +4,8 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: '穿靴子的猫',
   description: 'A VitePress Site',
+  cleanUrls: true,
+  srcDir: './src',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
