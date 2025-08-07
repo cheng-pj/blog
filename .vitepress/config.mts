@@ -5,6 +5,7 @@ export default defineConfig({
   title: '穿靴子的猫',
   description: 'A VitePress Site',
   cleanUrls: true,
+  base: '/note/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
