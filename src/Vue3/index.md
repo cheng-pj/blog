@@ -1,4 +1,4 @@
-![lifecycle_zh](.\images\lifecycle_zh.png)
+![lifecycle_zh](./images/lifecycle_zh.png)
 
 ## defineProps()
 

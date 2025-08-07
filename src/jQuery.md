@@ -42,7 +42,6 @@
 | [:hidden](http://www.runoob.com/jquery/sel-hidden.html)      | `$("p:hidden")`                | 所有隐藏的 `<p>` 元素                                        |
 | [:visible](http://www.runoob.com/jquery/sel-visible.html)    | `$("table:visible")`           | 所有可见的表格                                               |
 | [:root](http://www.runoob.com/jquery/jq-sel-root.html)       | `$(":root")`                   | 文档的根元素                                                 |
-| [:lang(*language*)](http://www.runoob.com/jquery/jq-sel-lang.html) | `$("p:lang(de)")`              | 所有 lang 属性值为   "de" 的 <p> 元素                        |
 | [[*attribute*]](http://www.runoob.com/jquery/jq-sel-attribute.html) | `$("[href]")`                  | 所有带有 href 属性的元素                                     |
 | [[*attribute*=*value*]](http://www.runoob.com/jquery/sel-attribute-equal-value.html) | `$("[href='default.htm']")`    | 所有带有 href 属性且值等于   "default.htm" 的元素            |
 | [[*attribute*!=*value*]](http://www.runoob.com/jquery/sel-attribute-notequal-value.html) | `$("[href!='default.htm']")`   | 所有带有 href 属性且值不等于   "default.htm" 的元素          |
