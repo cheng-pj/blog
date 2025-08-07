@@ -41,18 +41,6 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
     ],
     
-    outline: {
-      label: '页面导航'
-    },
-    
-    notFound: {
-      title: '页面未找到',
-      quote:
-        '但如果你不改变方向，并且继续寻找，你可能最终会到达你所前往的地方。',
-      linkLabel: '前往首页',
-      linkText: '带我回首页'
-    },
-    
     docFooter: {
       prev: '上一页',
       next: '下一页'
