@@ -670,6 +670,10 @@ a{Click me}
 &::-webkit-scrollbar-button {
   display: none;
 }
+
+&::-webkit-scrollbar-track-piece {
+  background-color: #fdf8f8;
+}
 ```
 
 ## 按钮 伪类
