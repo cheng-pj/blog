@@ -872,7 +872,7 @@ a{Click me}
 }
 ```
 
-### [值](https://developer.mozilla.org/zh-CN/docs/Web/CSS/overscroll-behavior#值)
+ [值](https://developer.mozilla.org/zh-CN/docs/Web/CSS/overscroll-behavior#值)
 
 - [`auto`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/overscroll-behavior#auto)
 
