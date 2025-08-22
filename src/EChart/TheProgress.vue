@@ -1,0 +1,260 @@
+<template>
+  <div class="progress-dashboard__wrap" :class="[type ? 'progress-' + type : '',]">
+    <div class="progress-dashboard__container">
+
+      <!--进度条-->
+      <div :id="chartId" class="progress-chart"></div>
+
+      <div class="progress-dashboard__pointer" :style="{'transform': `rotate(${deg}deg)`}">
+        <img :src="imgUrl" class="pointer" alt="指针"/>
+      </div>
+
+      <div class="progress-dashboard__title">{{ title }}</div>
+    </div>
+
+    <div class="progress-dashboard__value">
+      <div class="value-text">
+        <CountTo :startVal="0" :endVal="value" :duration="1000" :decimals="2"/>%
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import * as echarts from 'echarts'
+import CountTo from 'vue-count-to'
+
+export default {
+  name: 'TheProgress',
+  components: { CountTo },
+  props: {
+    chartId: String,
+    value: {
+      type: Number,
+      default: 0
+    },
+    title: String,
+    type: String
+  },
+  data() {
+    return {
+      deg: 0,
+      chart: null,
+    }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      setTimeout(() => {
+        this.initChart()
+      }, 500)
+    })
+  },
+  beforeDestroy() {
+    if (this.chart) {
+      this.chart.dispose()
+      this.chart = null
+    }
+  },
+  watch: {
+    value: {
+      immediate: true,
+      handler(val) {
+        this.$nextTick(() => {
+          setTimeout(() => {
+            const maxDeg = 180
+            const curDeg = val / 100 * maxDeg
+            this.deg = curDeg > 180 ? 180 : curDeg
+
+            this.initChart()
+          }, 500)
+        })
+      }
+    }
+  },
+  computed: {
+    imgUrl() {
+      let img = ''
+      switch (this.type) {
+        case 'green':
+          img = require('../assets/pointer_g.png')
+          break
+        case 'blue':
+          img = require('../assets/pointer_b.png')
+          break
+        case 'yellow':
+          img = require('../assets/pointer_y.png')
+          break
+      }
+
+      return img
+    }
+  },
+  methods: {
+    initChart() {
+      const chartDom = document.getElementById(this.chartId)
+      this.chart = echarts.init(chartDom, 'light', {
+        renderer: 'svg',
+      })
+
+      this.chart.setOption({
+        series: [
+          {
+            center: ['50%', '93%'],
+            type: 'gauge',
+            startAngle: 180,
+            endAngle: 0,
+            min: 0,
+            max: 100,
+            radius: '153%',
+            progress: {
+              show: true,
+              roundCap: true,
+              width: 5,
+              itemStyle: {
+                color: this.handleProgressColor()
+              }
+            },
+            pointer: { show: false },
+            axisTick: { show: false },
+            axisLine: { show: false, },
+            axisLabel: { show: false },
+            splitLine: { show: false },
+            detail: { show: false },
+            emphasis: { disabled: true },
+            data: [this.value]
+          }
+        ]
+      })
+    },
+
+    /**
+     * 处理进度条颜色
+     * @returns {null}
+     */
+    handleProgressColor() {
+      let progressColor = null
+      switch (this.type) {
+        case 'green':
+          progressColor = new echarts.graphic.LinearGradient(0, 1, 0, 0, [
+            { offset: 0, color: '#30dc00' },
+            { offset: 1, color: '#00b67a' }
+          ])
+          break
+        case 'blue':
+          progressColor = new echarts.graphic.LinearGradient(0, 1, 0, 0, [
+            { offset: 0, color: '#00DCB2' },
+            { offset: 1, color: '#136BF0' }
+          ])
+          break
+        case 'yellow':
+          progressColor = new echarts.graphic.LinearGradient(0, 1, 0, 0, [
+            { offset: 0, color: '#ffd418' },
+            { offset: 1, color: '#f8a500' }
+          ])
+          break
+      }
+
+      return progressColor
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.progress-green {
+  .progress-dashboard__container {
+    background: url("../assets/bg_g.png") no-repeat center;
+  }
+
+  .value-text {
+    color: #00b67a;
+    border: 1px solid #43dc96;
+  }
+}
+
+.progress-blue {
+  .progress-dashboard__container {
+    background: url("../assets/bg_b.png") no-repeat center;
+  }
+
+  .value-text {
+    color: #136bf0;
+    border: 1px solid #5694f1;
+  }
+}
+
+.progress-yellow {
+  .progress-dashboard__container {
+    background: url("../assets/bg_y.png") no-repeat center;
+  }
+
+  .value-text {
+    color: #f8a500;
+    border: 1px solid #fcc862;
+  }
+}
+
+.progress-dashboard__wrap {
+
+  .progress-dashboard__container {
+    position: relative;
+    width: 176px;
+    height: 94px;
+    background-size: cover;
+
+    .progress-chart {
+      width: 176px;
+      height: 94px;
+    }
+  }
+
+  .progress-dashboard__title {
+    font-size: 12px;
+    font-family: PingFang SC, PingFang SC-Medium;
+    font-weight: bold;
+    color: #666666;
+    line-height: 16px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    text-align: center;
+  }
+
+  .progress-dashboard__pointer {
+    width: 72px;
+    height: 11px;
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+    transform-origin: right;
+    transform: rotate(0deg);
+    transition: transform 0.5s cubic-bezier(0.45, 0.23, 0.22, 1);
+
+    .pointer {
+      display: block;
+      width: inherit;
+      height: inherit;
+      object-fit: cover;
+    }
+  }
+}
+
+.progress-dashboard__value {
+  text-align: center;
+  margin-top: 5px;
+
+  .value-text {
+    font-size: 16px;
+    font-family: DINPro, DINPro-Bold;
+    font-weight: bolder;
+    line-height: 27px;
+    height: 27px;
+    border-radius: 17px;
+    padding: 0 10px;
+    display: inline-block;
+    text-align: center;
+  }
+}
+</style>
