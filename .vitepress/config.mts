@@ -29,14 +29,8 @@ export default defineConfig({
           { text: '环境搭建', link: '环境搭建' },
           { text: '软件破解教程', link: '软件破解教程' },
           { text: '小程序', link: '小程序' },
-          { text: 'Flutter', link: 'Flutter' },
-          { text: 'Java 核心', link: 'Java 核心' },
-          { text: 'Linux', link: 'Linux' },
           { text: 'Restful 文档', link: 'Restful 文档' },
           { text: '表格类工具', link: '表格类工具' },
-          { text: 'MyBatis', link: 'MyBatis' },
-          { text: 'Spring', link: 'Spring' },
-          { text: '视频合并', link: '视频合并' }
         ]
       }
     ],
