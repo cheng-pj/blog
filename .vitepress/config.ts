@@ -1,8 +1,49 @@
 import { defineConfig } from 'vitepress'
+import type { DefaultTheme } from 'vitepress'
+import { CssTutorial, DevLog, JsTutorial } from './module'
+
+const Nav: DefaultTheme.NavItem[] = [
+  {
+    text: 'DevLog',
+    items: DevLog,
+    activeMatch: '^/dev-log/',
+  },
+  {
+    text: 'CssTutorial',
+    items: CssTutorial,
+    activeMatch: '^/css-tutorial/',
+  },
+  {
+    text: 'JsTutorial',
+    items: JsTutorial,
+    activeMatch: '^/js-tutorial/',
+  },
+]
+
+const SidebarDevLog: DefaultTheme.SidebarItem[] = [
+  {
+    text: 'DevLog',
+    items: DevLog,
+  }
+]
+
+const SidebarCssTutorial: DefaultTheme.SidebarItem[] = [
+  {
+    text: 'CssTutorial',
+    items: CssTutorial,
+  }
+]
+
+const SidebarJsTutorial: DefaultTheme.SidebarItem[] = [
+  {
+    text: 'JsTutorial',
+    items: JsTutorial,
+  }
+]
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: '穿靴子的猫',
+  title: 'cat',
   description: 'A VitePress Site',
   cleanUrls: true,
   base: '/note/',
@@ -10,30 +51,12 @@ export default defineConfig({
   
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: '主页', link: '/' },
-      { text: '笔记', link: '我的笔记' }
-    ],
-    
-    sidebar: [
-      {
-        text: '笔记',
-        items: [
-          { text: '开发总结', link: '开发总结' },
-          { text: 'js', link: 'JavaScript基础' },
-          { text: 'HTML+CSS', link: 'HTML+CSS' },
-          { text: 'Vue2', link: 'Vue2' },
-          { text: 'Vue3', link: 'Vue3' },
-          { text: 'jQuery', link: 'jQuery' },
-          { text: 'Git', link: 'Git' },
-          { text: '环境搭建', link: '环境搭建' },
-          { text: '软件破解教程', link: '软件破解教程' },
-          { text: '小程序', link: '小程序' },
-          { text: 'Restful 文档', link: 'Restful 文档' },
-          { text: '表格类工具', link: '表格类工具' },
-        ]
-      }
-    ],
+    nav: Nav,
+    sidebar: {
+      '/dev-log/': SidebarDevLog,
+      '/css-tutorial/': SidebarCssTutorial,
+      '/js-tutorial/': SidebarJsTutorial
+    },
     
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
