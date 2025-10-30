@@ -4,3 +4,5 @@ dist
 cache
 .idea
 .nvmdrc
+auto-import.d.ts
+.eslintrc-auto-import.json

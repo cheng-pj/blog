@@ -25,18 +25,16 @@ export default defineConfig({
         /\.md$/
       ]
     }),
+    AutoImport({
+      imports: ['vue'],
+      dts: 'src/auto-import.d.ts',
+      eslintrc: {
+        enabled: true
+      }
+    }),
     groupIconVitePlugin({
       customIcon: {
         postcss: 'vscode-icons:file-type-postcss'
-      }
-    }),
-    AutoImport({
-      imports: ['vue'],
-      // 设置为在'src/'目录下生成解决ts报错，默认是当前目录('./'，即根目录)
-      dts: 'src/auto-import.d.ts',
-      // 自动生成'eslintrc-auto-import.json'文件，在'.eslintrc.cjs'的'extends'中引入解决报错
-      eslintrc: {
-        enabled: true
       }
     })
   ]

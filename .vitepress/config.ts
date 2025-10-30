@@ -48,7 +48,9 @@ export default defineConfig({
   cleanUrls: true,
   base: '/note/',
   srcDir: 'src',
-  
+  vite: {
+    configFile: 'vite.config.ts'
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: Nav,
