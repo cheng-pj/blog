@@ -4,13 +4,14 @@ title: element el-select
 
 # 下拉框变态全选
 
-```vue
+::: code-group
+```vue [demo1.vue]
 <el-select v-model="orderSource" @change="onChangeOrderSource" filterable clearable multiple collapse-tags>
   <el-option v-for="item in orderSourceList" :key="item.code" :label="item.name" :value="item.code"/>
 </el-select>
 ```
 
-```ts
+```ts [demo1.ts]
 export default {
   data() {
     return {
