@@ -47,7 +47,6 @@ export default defineConfig({
   description: 'A VitePress Site',
   cleanUrls: true,
   base: '/note/',
-  srcDir: 'src',
   vite: {
     configFile: 'vite.config.ts'
   },

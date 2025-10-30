@@ -5,4 +5,5 @@ cache
 .idea
 .nvmdrc
 auto-import.d.ts
+components.d.ts
 .eslintrc-auto-import.json

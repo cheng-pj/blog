@@ -16,8 +16,9 @@ export default defineConfig({
   },
   plugins: [
     Components({
+      dts: true,
       dirs: [
-        '.vitepress/theme/components'
+       '.vitepress/components'
       ],
       include: [
         /\.vue$/,
@@ -27,7 +28,7 @@ export default defineConfig({
     }),
     AutoImport({
       imports: ['vue'],
-      dts: 'src/auto-import.d.ts',
+      dts: 'auto-import.d.ts',
       eslintrc: {
         enabled: true
       }
