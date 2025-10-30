@@ -18,7 +18,7 @@ export default defineConfig({
     Components({
       dts: true,
       dirs: [
-       '.vitepress/components'
+       'src'
       ],
       include: [
         /\.vue$/,
