@@ -60,3 +60,4 @@ export default {
 :::
 
 <DemoElSelectMul/>
+<TheProgress/>

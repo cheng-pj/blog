@@ -11,13 +11,5 @@
     "verbatimModuleSyntax": true,
     "jsx": "preserve",
     "lib": ["esnext", "dom", "dom.iterable"]
-  },
-  "exclude": [
-    "**/node_modules/**",
-    "**/dist/**",
-    "template",
-    "bin",
-    "docs/snippets",
-    "scripts"
-  ]
+  }
 }

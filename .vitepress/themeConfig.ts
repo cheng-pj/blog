@@ -1,19 +1,19 @@
 import { type DefaultTheme, defineAdditionalConfig } from 'vitepress'
 // 开发日志
 const DevLog: DefaultTheme.NavItemWithLink[] = [
-  { text: 'log', link: '/dev-log/' },
-  { text: 'dayjs', link: '/dev-log/dayjs' },
-  { text: 'eChart', link: '/dev-log/echart' },
-  { text: '响应式布局', link: '/dev-log/响应式布局方案' },
-  { text: 'element-ui', link: '/dev-log/element-ui' },
+  { text: 'log', link: '/docs/dev-log/' },
+  { text: 'dayjs', link: '/docs/dev-log/dayjs' },
+  { text: 'eChart', link: '/docs/dev-log/echart' },
+  { text: '响应式布局', link: '/docs/dev-log/响应式布局方案' },
+  { text: 'element-ui', link: '/docs/dev-log/element-ui' },
 ]
 
 const CssTutorial: DefaultTheme.NavItemWithLink[] = [
-  { text: 'css-tutorial', link: '/css-tutorial/' },
+  { text: 'css-tutorial', link: '/docs/css-tutorial/' },
 ]
 
 const JsTutorial: DefaultTheme.NavItemWithLink[] = [
-  { text: 'js-tutorial', link: '/js-tutorial/' },
+  { text: 'js-tutorial', link: '/docs/js-tutorial/' },
 ]
 
 export const Nav: DefaultTheme.NavItem[] = [

@@ -14,7 +14,8 @@
 
     <div class="progress-dashboard__value">
       <div class="value-text">
-        <CountTo :startVal="0" :endVal="value" :duration="1000" :decimals="2"/>%
+<!--        <CountTo :startVal="0" :endVal="value" :duration="1000" :decimals="2"/>%-->
+        <span>{{ value }}%</span>
       </div>
     </div>
   </div>
@@ -22,11 +23,9 @@
 
 <script>
 import * as echarts from 'echarts'
-import CountTo from 'vue-count-to'
 
 export default {
   name: 'TheProgress',
-  components: { CountTo },
   props: {
     chartId: String,
     value: {

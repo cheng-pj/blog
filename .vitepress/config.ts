@@ -5,14 +5,12 @@ import { defineConfig } from 'vitepress'
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
 import { Nav, SidebarCssTutorial, SidebarDevLog, SidebarJsTutorial } from './themeConfig'
 
-
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'cat',
   description: 'A VitePress Site',
   cleanUrls: true,
   base: '/blog/',
-  srcDir: 'doc',
   markdown: {
     lineNumbers: true,
     image: {
@@ -27,6 +25,7 @@ export default defineConfig({
       md.use(groupIconMdPlugin)
     }
   },
+
   themeConfig: {
     search: {
       provider: 'local'
@@ -34,9 +33,9 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: Nav,
     sidebar: {
-      '/dev-log/': SidebarDevLog,
-      '/css-tutorial/': SidebarCssTutorial,
-      '/js-tutorial/': SidebarJsTutorial
+      '/docs/dev-log/': SidebarDevLog,
+      '/docs/css-tutorial/': SidebarCssTutorial,
+      '/docs/js-tutorial/': SidebarJsTutorial
     },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
@@ -77,7 +76,8 @@ export default defineConfig({
       Components({
         dts: true,
         dirs: [
-          './doc'
+          '.vitepress/theme/components',
+          'docs'
         ],
         include: [
           /\.vue$/,
