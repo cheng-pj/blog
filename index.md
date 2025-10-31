@@ -15,11 +15,11 @@ hero:
       link: /api-examples
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Inbox（收件箱）
+    details: 存放零散的灵感、临时发现
+  - title: Notes（笔记）
+    details: 系统化整理后的主题笔记
+  - title: Knowledge（知识）
+    details: 高度提炼的、可复用的核心知识点
 ---
 
