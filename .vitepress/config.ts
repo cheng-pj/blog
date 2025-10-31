@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 import type { DefaultTheme } from 'vitepress'
 import { CssTutorial, DevLog, JsTutorial } from './module'
+import { groupIconMdPlugin } from 'vitepress-plugin-group-icons'
 
 const Nav: DefaultTheme.NavItem[] = [
   {
@@ -49,6 +50,16 @@ export default defineConfig({
   base: '/note/',
   vite: {
     configFile: 'vite.config.ts'
+  },
+  markdown: {
+    // 代码块高亮主题
+    // theme: {
+    //   light: 'vitesse-light',
+    //   dark: 'vitesse-dark',
+    // },
+    config(md) {
+      md.use(groupIconMdPlugin)
+    },
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config

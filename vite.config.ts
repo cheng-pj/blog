@@ -3,6 +3,7 @@ import { defineConfig } from 'vite'
 import { groupIconVitePlugin } from 'vitepress-plugin-group-icons'
 import AutoImport from 'unplugin-auto-import/vite'
 
+
 export default defineConfig({
   optimizeDeps: {
     exclude: [
