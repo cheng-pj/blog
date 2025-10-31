@@ -1,22 +1,21 @@
 import { type DefaultTheme } from 'vitepress'
 
 const Inbox: DefaultTheme.NavItemWithLink[] = [
-  { text: 'Demo', link: '/docs/demo/index.md' },
-  { text: '时间日期', link: '/docs/dayjs/index.md' },
-  { text: '图表', link: '/docs/charts/index.md' },
-  { text: 'Element UI', link: '/docs/element-ui/index.md' },
-  { text: 'HTML+CSS', link: '/docs/css/index.md' },
-  { text: 'JavaScript', link: '/docs/javascript/index.md' }
+  { text: 'Demo', link: '/docs/inbox/demo/index.md' },
+  { text: '时间日期', link: '/docs/inbox/dayjs/index.md' },
+  { text: '图表', link: '/docs/inbox/charts/index.md' },
+  { text: 'Element UI', link: '/docs/inbox/element-ui/index.md' },
+  { text: 'HTML+CSS', link: '/docs/inbox/css/index.md' },
+  { text: 'JavaScript', link: '/docs/inbox/javascript/index.md' }
 ]
 
 /**
  * 侧边栏
  */
 export const Sidebar: DefaultTheme.Sidebar = {
-  '/docs/': [
+  '/docs/inbox/': [
     {
       text: '收件箱',
-      collapsed: true,
       items: Inbox
     }
   ]
