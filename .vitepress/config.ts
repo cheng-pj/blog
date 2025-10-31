@@ -3,7 +3,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vitepress'
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
-import { Nav, SidebarCssTutorial, SidebarDevLog, SidebarJsTutorial } from './themeConfig'
+import { Nav, Sidebar, SidebarCssTutorial, SidebarDevLog, SidebarJsTutorial } from './themeConfig'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -32,11 +32,7 @@ export default defineConfig({
     },
     // https://vitepress.dev/reference/default-theme-config
     nav: Nav,
-    sidebar: {
-      '/docs/dev-log/': SidebarDevLog,
-      '/docs/css-tutorial/': SidebarCssTutorial,
-      '/docs/js-tutorial/': SidebarJsTutorial
-    },
+    sidebar: Sidebar,
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
     ],
@@ -66,6 +62,9 @@ export default defineConfig({
     skipToContentLabel: '跳转到内容',
   },
   vite: {
+    ssr: {
+      noExternal: ['element-plus'],
+    },
     server: {
       hmr: {
         overlay: false

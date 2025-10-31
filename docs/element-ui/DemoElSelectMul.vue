@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const select = ref([])
+const select = ref('')
 </script>
 
 <template>

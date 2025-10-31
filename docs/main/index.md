@@ -634,7 +634,7 @@ taskkill /PID 22980 /F
 ## element ui 日期组件和dayjs搭配进行逻辑交互
 
 ```ts
-import dayjs from 'dayjs'
+import dayjs from 'time'
 
 /**
  * 获取周开始结束时间

@@ -7,6 +7,7 @@ import Layout from "./Layout.vue";
 import 'virtual:group-icons.css'
 import './style.css'
 import './overrides.css'
+import 'element-plus/dist/index.css'
 
 export default {
   extends: DefaultTheme,
