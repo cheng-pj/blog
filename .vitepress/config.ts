@@ -3,7 +3,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vitepress'
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
-import { Nav, Sidebar, SidebarCssTutorial, SidebarDevLog, SidebarJsTutorial } from './themeConfig'
+import { Nav, Sidebar } from './themeConfig'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -11,21 +11,6 @@ export default defineConfig({
   description: 'A VitePress Site',
   cleanUrls: true,
   base: '/blog/',
-  markdown: {
-    lineNumbers: true,
-    image: {
-      lazyLoading: true  // 所有图片自动懒加载
-    },
-    // 代码块高亮主题
-    // theme: {
-    //   light: 'vitesse-light',
-    //   dark: 'vitesse-dark',
-    // },
-    config(md) {
-      md.use(groupIconMdPlugin)
-    }
-  },
-
   themeConfig: {
     search: {
       provider: 'local'
@@ -60,6 +45,20 @@ export default defineConfig({
     lightModeSwitchTitle: '切换到浅色模式',
     darkModeSwitchTitle: '切换到深色模式',
     skipToContentLabel: '跳转到内容',
+  },
+  markdown: {
+    lineNumbers: true,
+    image: {
+      lazyLoading: true  // 所有图片自动懒加载
+    },
+    // 代码块高亮主题
+    // theme: {
+    //   light: 'vitesse-light',
+    //   dark: 'vitesse-dark',
+    // },
+    config(md) {
+      md.use(groupIconMdPlugin)
+    }
   },
   vite: {
     ssr: {
