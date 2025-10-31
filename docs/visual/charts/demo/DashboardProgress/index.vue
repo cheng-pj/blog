@@ -119,29 +119,10 @@ export default {
      * @returns {null}
      */
     handleProgressColor() {
-      let progressColor = null
-      switch (this.type) {
-        case 'green':
-          progressColor = new echarts.graphic.LinearGradient(0, 1, 0, 0, [
-            { offset: 0, color: '#30dc00' },
-            { offset: 1, color: '#00b67a' }
-          ])
-          break
-        case 'blue':
-          progressColor = new echarts.graphic.LinearGradient(0, 1, 0, 0, [
-            { offset: 0, color: '#00DCB2' },
-            { offset: 1, color: '#136BF0' }
-          ])
-          break
-        case 'yellow':
-          progressColor = new echarts.graphic.LinearGradient(0, 1, 0, 0, [
-            { offset: 0, color: '#ffd418' },
-            { offset: 1, color: '#f8a500' }
-          ])
-          break
-      }
-      
-      return progressColor
+      return new echarts.graphic.LinearGradient(0, 1, 0, 0, [
+        { offset: 0, color: '#00DCB2' },
+        { offset: 1, color: '#136BF0' }
+      ])
     }
   }
 }
@@ -176,7 +157,6 @@ export default {
   
   .progress-dashboard__title {
     font-size: 12px;
-    font-family: PingFang SC, PingFang SC-Medium;
     font-weight: bold;
     color: #666666;
     line-height: 16px;
@@ -213,7 +193,6 @@ export default {
   
   .value-text {
     font-size: 16px;
-    font-family: DINPro, DINPro-Bold;
     font-weight: bolder;
     line-height: 27px;
     height: 27px;
