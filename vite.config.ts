@@ -1,7 +1,8 @@
+import AutoImport from 'unplugin-auto-import/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
 import { groupIconVitePlugin } from 'vitepress-plugin-group-icons'
-import AutoImport from 'unplugin-auto-import/vite'
 
 
 export default defineConfig({
@@ -25,7 +26,10 @@ export default defineConfig({
         /\.vue$/,
         /\.vue\?vue/,
         /\.md$/
-      ]
+      ],
+      resolvers: [
+        ElementPlusResolver(),
+      ],
     }),
     AutoImport({
       imports: ['vue'],
