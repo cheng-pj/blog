@@ -294,7 +294,7 @@ module.exports = {
                         },
                         commons: {
                             name: 'chunk-commons',
-                            test: resolve('src/components'), // can customize your rules
+                            test: resolve('doc/components'), // can customize your rules
                             minChunks: 3, //  minimum common number
                             priority: 5,
                             reuseExistingChunk: true
@@ -383,7 +383,7 @@ module.exports = {
 ### 引用组件
 
 ```js
-// @ is an alias to /src   @是一个别名 表示 /src
+// @ is an alias to /doc   @是一个别名 表示 /doc
 import HelloWorld from '@/components/HelloWorld.vue'
 ```
 

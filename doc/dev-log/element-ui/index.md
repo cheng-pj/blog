@@ -5,13 +5,13 @@ title: element el-select
 # 下拉框变态全选
 
 ::: code-group
-```vue [demo1.vue]
+```vue [demo.vue]
 <el-select v-model="orderSource" @change="onChangeOrderSource" filterable clearable multiple collapse-tags>
   <el-option v-for="item in orderSourceList" :key="item.code" :label="item.name" :value="item.code"/>
 </el-select>
 ```
 
-```ts [demo1.ts]
+```ts [demo.ts]
 export default {
   data() {
     return {
@@ -56,5 +56,7 @@ export default {
   }
 }
 ```
+<<< ./DemoElSelectMul.vue
+:::
 
 <DemoElSelectMul/>

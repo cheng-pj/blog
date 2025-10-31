@@ -5,9 +5,7 @@ import { nextTick, provide } from 'vue'
 
 const { isDark } = useData()
 
-const enableTransitions = () =>
-  'startViewTransition' in document &&
-  window.matchMedia('(prefers-reduced-motion: no-preference)').matches
+const enableTransitions = () => 'startViewTransition' in document && window.matchMedia('(prefers-reduced-motion: no-preference)').matches
 
 provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
   if (!enableTransitions()) {
@@ -41,7 +39,11 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
 </script>
 
 <template>
-  <DefaultTheme.Layout/>
+  <DefaultTheme.Layout>
+    <template v-for="(slot, name) in $slots" #[name]>
+      <slot :name="name" />
+    </template>
+  </DefaultTheme.Layout>
 </template>
 
 <style>
