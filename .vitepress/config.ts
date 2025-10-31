@@ -28,6 +28,9 @@ export default defineConfig({
     }
   },
   themeConfig: {
+    search: {
+      provider: 'local'
+    },
     // https://vitepress.dev/reference/default-theme-config
     nav: Nav,
     sidebar: {
@@ -62,36 +65,8 @@ export default defineConfig({
     lightModeSwitchTitle: '切换到浅色模式',
     darkModeSwitchTitle: '切换到深色模式',
     skipToContentLabel: '跳转到内容',
-    search: {
-      provider: 'local',
-      options: {
-        locales: {
-          zh: {
-            translations: {
-              button: {
-                buttonText: '搜索文档',
-                buttonAriaLabel: '搜索文档'
-              },
-              modal: {
-                noResultsText: '无法找到相关结果',
-                resetButtonTitle: '清除查询条件',
-                footer: {
-                  selectText: '选择',
-                  navigateText: '切换'
-                }
-              }
-            }
-          }
-        }
-      }
-    }
   },
   vite: {
-    optimizeDeps: {
-      exclude: [
-        'vitepress'
-      ]
-    },
     server: {
       hmr: {
         overlay: false
@@ -102,7 +77,7 @@ export default defineConfig({
       Components({
         dts: true,
         dirs: [
-          '../doc'
+          './doc'
         ],
         include: [
           /\.vue$/,
