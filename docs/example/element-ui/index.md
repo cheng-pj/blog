@@ -9,6 +9,6 @@ title: element el-select
 </DemoContainer>
 
 ::: details 点击查看代码
-<<< ./DemoElSelectMul.vue
+<<< ./components/DemoElSelectMul.vue
 :::
 
