@@ -15,8 +15,8 @@ hero:
       link: /api-examples
 
 features:
-  - title: Inbox（收件箱）
-    details: 存放零散的灵感、临时发现
+  - title: Example（演示）
+    details: 实战案例
   - title: Notes（笔记）
     details: 系统化整理后的主题笔记
   - title: Knowledge（知识）

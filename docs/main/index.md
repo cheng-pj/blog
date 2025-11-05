@@ -502,67 +502,6 @@ async function submitMemo() {
 }
 ```
 
-## 响应式flex布局，文字超出隐藏 demo
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  
-  <style>
-    * {
-      box-sizing: border-box;
-      padding: 0;
-      margin: 0;
-    }
-    
-    body {
-      padding: 10px;
-    }
-    
-    .main {
-      overflow: hidden;
-      display: flex;
-      position: relative;
-      border: 1px solid red;
-      align-items: center;
-      padding: 5px;
-    }
-    
-    .box {
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid red;
-      padding: 5px;
-    }
-    
-    .name {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: inline-block;
-    }
-  </style>
-</head>
-<body>
-<div class="main">
-  <div class="box">
-    <span class="name">这是第一个这是第一个这是第一个</span>
-<!--    <i style="font-style: normal; flex-shrink: 0; border: 1px solid red;">删除</i>-->
-  </div>
-  <div class="box" style="flex-shrink: 0; margin-left: 20px;">
-    <span class="name">这是第二个</span>
-  </div>
-</div>
-</body>
-</html>
-
-```
-
 ## 调用office文档预览
 
 ```tex

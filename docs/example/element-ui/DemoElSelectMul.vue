@@ -1,24 +1,22 @@
----
-title: element el-select
----
+<template>
+  <el-select v-model="orderSource" @change="onChangeOrderSource" filterable clearable multiple collapse-tags style="width: 240px;">
+    <el-option v-for="item in orderSourceList" :key="item.code" :label="item.name" :value="item.code"/>
+  </el-select>
+</template>
 
-# 下拉框变态全选
-
-::: code-group
-```vue [demo.vue]
-<el-select v-model="orderSource" @change="onChangeOrderSource" filterable clearable multiple collapse-tags>
-  <el-option v-for="item in orderSourceList" :key="item.code" :label="item.name" :value="item.code"/>
-</el-select>
-```
-
-```ts [demo.ts]
+<script>
 export default {
   data() {
     return {
       orderSource: [],
       // 订单来源列表
-      orderSourceList: [],
-      oldOrderSourceList: [],
+      orderSourceList: [
+        { name: '全部', code: '' },
+        { name: '北京', code: '' },
+        { name: '天津', code: '' },
+        { name: '上海', code: '' }
+      ],
+      oldOrderSourceList: []
     }
   },
   
@@ -55,9 +53,4 @@ export default {
     }
   }
 }
-```
-<<< ./DemoElSelectMul.vue
-:::
-
-<DemoElSelectMul/>
-<TheProgress/>
+</script>

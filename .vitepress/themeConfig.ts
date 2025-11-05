@@ -1,36 +1,31 @@
 import { type DefaultTheme } from 'vitepress'
 
-const Inbox: DefaultTheme.NavItemWithLink[] = [
-  { text: 'Demo', link: '/docs/inbox/demo/index.md' },
-  { text: '时间日期', link: '/docs/inbox/dayjs/index.md' },
-  { text: '图表', link: '/docs/inbox/charts/index.md' },
-  { text: 'Element UI', link: '/docs/inbox/element-ui/index.md' },
-  { text: 'HTML+CSS', link: '/docs/inbox/css/index.md' },
-  { text: 'JavaScript', link: '/docs/inbox/javascript/index.md' }
+const Example: DefaultTheme.NavItemWithLink[] = [
+  { text: 'Demo', link: '/docs/example/demo/index.md' },
+  { text: '时间日期', link: '/docs/example/dayjs/index.md' },
+  { text: '图表', link: '/docs/example/charts/index.md' },
+  { text: 'Element UI', link: '/docs/example/element-ui/index.md' },
+  { text: 'HTML+CSS', link: '/docs/example/css/index.md' },
+  { text: 'JavaScript', link: '/docs/example/javascript/index.md' }
 ]
 
 /**
  * 侧边栏
  */
 export const Sidebar: DefaultTheme.Sidebar = {
-  '/docs/inbox/': [
+  '/docs/example/': [
     {
-      text: '收件箱',
-      items: Inbox
+      text: '演示',
+      items: Example
     }
   ]
 }
 
 // export const Sidebar: DefaultTheme.Sidebar = [
 //   {
-//     text: '收件箱',
+//     text: '演示',
 //     collapsed: true,
-//     items: Inbox
-//   },
-//   {
-//     text: '收件箱',
-//     collapsed: true,
-//     items: Inbox
+//     items: Example
 //   }
 // ]
 
@@ -40,7 +35,7 @@ export const Sidebar: DefaultTheme.Sidebar = {
  */
 export const Nav: DefaultTheme.NavItem[] = [
   {
-    text: '收件箱',
-    items: Inbox
+    text: '演示',
+    items: Example
   }
 ]
