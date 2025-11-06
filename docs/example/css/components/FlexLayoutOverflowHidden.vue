@@ -1,11 +1,24 @@
 <template>
+  <!--demo1-->
   <div class="main">
     <div class="box">
-      <span class="name">这是第一个这是第一个这是第一个</span>
-      <i style="font-style: normal; flex-shrink: 0; border: 1px solid red;">删除</i>
+      <span class="name">这是一段文字，它将在超出后出现三个点</span>
+      <i class="icon">删除</i>
     </div>
     <div class="box" style="flex-shrink: 0; margin-left: 20px;">
       <span class="name">这是第二个</span>
+    </div>
+  </div>
+  
+  <!--demo2-->
+  <div class="main" style="margin-top: 20px;">
+    <div class="box" style="flex-shrink: 0;">
+      <span class="name">这是第二个</span>
+    </div>
+    
+    <div class="box" style="margin-left: 20px;">
+      <span class="name">这是一段文字，它将在超出后出现三个点</span>
+      <i class="icon">删除</i>
     </div>
   </div>
 </template>
@@ -17,7 +30,9 @@
   position: relative;
   border: 1px solid red;
   align-items: center;
-  padding: 5px;
+  padding: 12px;
+  resize: horizontal;
+  max-width: 100%;
 }
 
 .box {
@@ -34,5 +49,12 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: inline-block;
+}
+
+.icon {
+  font-style: normal;
+  flex-shrink: 0;
+  border: 1px solid red;
+  margin-left: 10px;
 }
 </style>
