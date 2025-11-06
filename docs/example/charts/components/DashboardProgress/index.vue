@@ -24,7 +24,6 @@
 import * as echarts from 'echarts'
 
 export default {
-  name: 'TheProgress',
   props: {
     chartId: {
       type: String,
