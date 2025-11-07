@@ -6,14 +6,14 @@
       <i class="icon">删除</i>
     </div>
     <div class="box" style="flex-shrink: 0; margin-left: 20px;">
-      <span class="name">这是第二个</span>
+      <span class="name">》</span>
     </div>
   </div>
   
   <!--demo2-->
   <div class="main" style="margin-top: 20px;">
     <div class="box" style="flex-shrink: 0;">
-      <span class="name">这是第二个</span>
+      <span class="name">图标</span>
     </div>
     
     <div class="box" style="margin-left: 20px;">
@@ -26,10 +26,11 @@
 <style scoped>
 .main {
   overflow: hidden;
-  display: flex;
+  border: 1px solid #fd4f5d;
   position: relative;
-  border: 1px solid red;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 12px;
   resize: horizontal;
   max-width: 100%;
@@ -40,7 +41,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid red;
+  border: 1px solid #fd4f5d;
   padding: 5px;
 }
 
@@ -53,8 +54,10 @@
 
 .icon {
   font-style: normal;
+  font-size: 12px;
   flex-shrink: 0;
-  border: 1px solid red;
+  border: 1px solid #fd4f5d;
   margin-left: 10px;
+  padding: 2px 5px;
 }
 </style>
