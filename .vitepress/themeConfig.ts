@@ -20,7 +20,8 @@ const Note: DefaultTheme.NavItemWithLink[] = [
 export const Sidebar: DefaultTheme.Sidebar = {
   '/docs/example/': [
     {
-      text: '演示',
+      text: '演示案例',
+      link: '/docs/example/',
       items: Example
     }
   ],
