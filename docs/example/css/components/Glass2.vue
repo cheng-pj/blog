@@ -20,8 +20,8 @@
   border-width: 1px;
   border-style: solid;
   border-color: color-mix(in oklab, #fff 50%, transparent);
-  -webkit-backdrop-filter: blur(3px);
-  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
   background-color: rgba(255, 255, 255, 0.7);
 }
 

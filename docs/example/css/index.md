@@ -28,10 +28,30 @@
 
 ## 毛玻璃效果
 
+### Demo 1
 ::: demo Glass1.vue
 <Glass1/>
 :::
 
 ::: details 点击查看代码
-<<< ./components/Glass1.vue
+<<< ./components/Glass1.vue {23-25}
+:::
+
+### Demo 2
+::: demo Glass2.vue
+<Glass2/>
+:::
+
+::: details 点击查看代码
+<<< ./components/Glass2.vue {23-25}
+:::
+
+## 伪类
+
+::: demo BeforeAndAfter.vue
+<BeforeAndAfter/>
+:::
+
+::: details 点击查看代码
+<<< ./components/BeforeAndAfter.vue
 :::

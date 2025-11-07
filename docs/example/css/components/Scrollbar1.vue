@@ -12,8 +12,8 @@
 .container {
   width: 100%;
   overflow: hidden;
-  background: var(--vp-c-default-1);
-  border-radius: 8px;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-border);
   
   .list-wrapper {
     // 想要让滚动条出现，必须要限制容器高度
@@ -21,33 +21,36 @@
     overflow: auto;
     height: 300px;
     
-    /* 定义滚动条高宽及背景高宽分别对应横竖滚动条的尺寸 */
+    // 定义滚动条高宽及背景高宽分别对应横竖滚动条的尺寸
     &::-webkit-scrollbar {
-      width: 15px;
-      height: 15px;
+      width: 20px; // Y轴
+      height: 15px; // X轴
     }
     
-    /* 定义滑块颜色+圆角 */
+    // 定义滑块颜色+圆角
     &::-webkit-scrollbar-thumb {
       border-radius: 10px;
-      background-color: #fd4f5d;
+      background-color: #3e63dd;
       cursor: pointer;
     }
-
-    /* 定义滚动条轨道内阴影+圆角 */
-    //&::-webkit-scrollbar-track {
-    //  border-radius: 10px;
-    //  background-color: #ffffff;
-    //}
     
-    /*控制上面两部分按钮样式*/
-    //&::-webkit-scrollbar-button {
-    //  display: none;
-    //}
+    // 定义滚动条轨道内阴影+圆角
+    &::-webkit-scrollbar-track {
+      border-radius: 5px;
+      background-color: #eeeeee;
+      box-shadow: inset 0 0 4px 1px rgba(99, 99, 99, 0.3);
+    }
     
-    //&::-webkit-scrollbar-track-piece {
-    //  background-color: #a8a8a8;
-    //}
+    // 控制上面两部分按钮样式
+    &::-webkit-scrollbar-button {
+      //display: none;
+    }
+    
+    // 根据实际情况进行调试
+    &::-webkit-scrollbar-track-piece {
+      //background-color: rgba(230, 13, 13, 0.45);
+      //box-shadow: inset 0 0 6px rgba(230, 13, 13, 0.45);
+    }
   }
   
   ul {
@@ -61,5 +64,3 @@
   }
 }
 </style>
-<script setup lang="ts">
-</script>
