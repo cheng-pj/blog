@@ -1,3 +1,4 @@
+import mdContainer from 'markdown-it-container'
 import AutoImport from 'unplugin-auto-import/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
@@ -44,25 +45,35 @@ export default defineConfig({
     darkModeSwitchLabel: '主题',
     lightModeSwitchTitle: '切换到浅色模式',
     darkModeSwitchTitle: '切换到深色模式',
-    skipToContentLabel: '跳转到内容',
+    skipToContentLabel: '跳转到内容'
   },
   markdown: {
     lineNumbers: true,
     image: {
       lazyLoading: true  // 所有图片自动懒加载
     },
-    // 代码块高亮主题
-    // theme: {
-    //   light: 'vitesse-light',
-    //   dark: 'vitesse-dark',
-    // },
     config(md) {
       md.use(groupIconMdPlugin)
+      md.use(mdContainer, 'demo', {
+        render: (tokens: any, idx: any) => {
+          const m = tokens[idx].info.trim().match(/^demo\s+(.*)$/)
+          if (tokens[idx].nesting === 1) {
+            // 开始标签
+            const title = m && m[1] ? m[1] : 'DEMO'
+            return `<div class="demo custom-block">
+                    <p class="custom-block-title">${title}</p>
+                    <p class="demo-content">`
+          } else {
+            // 结束标签
+            return '</p></div>'
+          }
+        }
+      })
     }
   },
   vite: {
     ssr: {
-      noExternal: ['element-plus'],
+      noExternal: ['element-plus']
     },
     server: {
       hmr: {
@@ -83,8 +94,8 @@ export default defineConfig({
           /\.md$/
         ],
         resolvers: [
-          ElementPlusResolver(),
-        ],
+          ElementPlusResolver()
+        ]
       }),
       AutoImport({
         imports: ['vue', 'vitepress'],
