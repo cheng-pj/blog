@@ -99,7 +99,7 @@ export default defineConfig({
       }),
       AutoImport({
         imports: ['vue', 'vitepress'],
-        dts: '../auto-import.d.ts',
+        dts: './auto-import.d.ts',
         eslintrc: {
           enabled: true
         }

@@ -2,6 +2,10 @@
 
 记录开发中使用过的样式
 
+::: demo ResizableBox.vue
+<ResizableBox/>
+:::
+
 ## 滚动条自定义样式
 
 通过修改元素伪类样式来实现
@@ -14,16 +18,26 @@
 <<< ./components/Scrollbar1.vue
 :::
 
-## 响应式文字超出隐藏
+## 文字超出隐藏
 
-使用`display: flex`布局，响应式文字超出隐藏
+文本超出隐藏
 
-::: demo FlexLayoutOverflowHidden.vue
-<FlexLayoutOverflowHidden/>
+::: demo OverflowEllipsis.vue
+<OverflowEllipsis/>
 :::
 
 ::: details 点击查看代码
-<<< ./components/FlexLayoutOverflowHidden.vue
+<<< ./components/OverflowEllipsis.vue
+:::
+
+使用`display: flex`布局，响应式文字超出隐藏
+
+::: demo FlexLayoutOverflowEllipsis.vue
+<FlexLayoutOverflowEllipsis/>
+:::
+
+::: details 点击查看代码
+<<< ./components/FlexLayoutOverflowEllipsis.vue
 :::
 
 ## 毛玻璃效果
@@ -46,7 +60,7 @@
 <<< ./components/Glass2.vue {23-25}
 :::
 
-## 伪类
+## 伪类实现自定义复选框
 
 ::: demo BeforeAndAfter.vue
 <BeforeAndAfter/>
@@ -55,3 +69,5 @@
 ::: details 点击查看代码
 <<< ./components/BeforeAndAfter.vue
 :::
+
+

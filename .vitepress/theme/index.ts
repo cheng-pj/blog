@@ -7,9 +7,7 @@ import 'virtual:group-icons.css';
 import 'element-plus/dist/index.css';
 import 'element-plus/theme-chalk/dark/css-vars.css';
 import './style/style.css';
-import './style/vars.css';
 import './style/overrides.css';
-import './style/fonts.css';
 
 export default {
   extends: DefaultTheme,

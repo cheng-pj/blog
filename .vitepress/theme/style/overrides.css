@@ -1,25 +1,6 @@
 :root {
-  .VPLocalNav {
-    background-color: rgba(255, 255, 255, 0);
-    backdrop-filter: blur(10px);
-  }
-  
-  .VPNavBar:not(.has-sidebar):not(.home.top) {
-    background-color: rgba(255, 255, 255, 0);
-    backdrop-filter: blur(10px);
-  }
-  
-  .vp-code-group .tabs label {
-    background-color: transparent;
-  }
-  
-  table {
-    width: 100% !important;
-    display: table;
-  }
-  
-  .custom-block.tip .custom-block-title {
-    color: var(--vp-c-brand-1);
+  .vp-doc div[class*='language-'] {
+    background-color: var(--vp-c-bg);
   }
   
   .custom-block.demo .custom-block-title {
@@ -32,83 +13,8 @@
     background-color: var(--vp-custom-block-details-bg);
   }
   
-  .VPHero .image-bg {
-    z-index: 1;
-    opacity: 0.8;
-    transition: opacity 1s ease;
+  .VPHero .VPImage {
+    filter: drop-shadow(-2px 4px 6px rgba(0, 0, 0, 0.2));
+    padding: 18px;
   }
-  
-  .VPHero .image-container:hover .image-bg {
-    opacity: 0.2;
-  }
-  
-  /**
-   * VitePress: Custom fix
-   * -------------------------------------------------------------------------- */
-  
-  /*
-    Use lighter colors for links in dark mode for a11y.
-    Also specify some classes twice to have higher specificity
-    over scoped class data attribute.
-  */
-  
-  .dark .vp-doc a:hover,
-  .dark .vp-doc a > code:hover {
-    color: var(--vp-c-brand-lightest);
-    opacity: 1;
-  }
-  
-  /* Transition by color instead of opacity */
-  
-  .dark .vp-doc .custom-block a {
-    transition: color 0.25s;
-  }
-  
-  /* VitePress Search */
-  
-  .VPLocalSearchBox .result {
-    --vp-c-bg-search-result: var(--vp-c-bg);
-    background: var(--vp-c-bg-search-result) !important;
-    padding: 4px !important;
-    border: 1px solid var(--vp-c-divider) !important;
-  }
-  
-  .VPLocalSearchBox .result.selected {
-    --vp-c-bg-search-result: var(--vp-c-bg-soft) !important;
-  }
-  
-  .VPLocalSearchBox .result .excerpt-gradient-top {
-    background: linear-gradient(var(--vp-c-bg-search-result), transparent) !important;
-  }
-  
-  .VPLocalSearchBox .result .excerpt-gradient-bottom {
-    background: linear-gradient(transparent, var(--vp-c-bg-search-result)) !important;
-  }
-  
-  .VPLocalSearchBox .title-icon {
-    display: none;
-  }
-  
-  .VPLocalSearchBox .excerpt-wrapper {
-    margin-top: 4px;
-  }
-  
-  /* dark/light radial transition */
-  
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation: none;
-    mix-blend-mode: normal;
-  }
-  
-  ::view-transition-old(root),
-  .dark::view-transition-new(root) {
-    z-index: 1;
-  }
-  
-  ::view-transition-new(root),
-  .dark::view-transition-old(root) {
-    z-index: 9999;
-  }
-  
 }

@@ -12,7 +12,7 @@
 .container {
   width: 100%;
   overflow: hidden;
-  background: var(--vp-c-bg-soft);
+  background: var(--vp-c-bg);
   border: 1px solid var(--vp-c-border);
   
   .list-wrapper {
@@ -64,3 +64,5 @@
   }
 }
 </style>
+<script setup lang="ts">
+</script>
