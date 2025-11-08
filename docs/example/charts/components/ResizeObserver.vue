@@ -11,12 +11,15 @@ interface Props {
 
 const { chartId = '' } = defineProps<Props>()
 
+const chartContainer = useTemplateRef<HTMLDivElement>('chartContainer')
 let resizeObserver = reactive(<ResizeObserver>{})
 let chart = reactive(<ECharts>{})
 const { isDark } = useData()
 
 onUnmounted(() => {
-  resizeObserver.unobserve(document.getElementById('chartContainer') as HTMLDivElement)
+  if (chartContainer.value) {
+    resizeObserver.unobserve(chartContainer.value)
+  }
   resizeObserver.disconnect()
   
   chart?.dispose()
@@ -36,7 +39,10 @@ const handleResizeObserver = () => {
   resizeObserver = new ResizeObserver(entries => {
     chart?.resize()
   })
-  resizeObserver.observe(document.getElementById('chartContainer') as HTMLDivElement)
+  
+  if (chartContainer.value) {
+    resizeObserver.observe(chartContainer.value)
+  }
 }
 
 const chartDom = useTemplateRef<HTMLElement>(chartId || '')
@@ -129,7 +135,7 @@ const options = computed((): EChartsOption => {
 </script>
 
 <template>
-  <div class="chartContainer" id="chartContainer">
+  <div class="chartContainer" ref="chartContainer">
     <div :ref="chartId" style="width: 100%; height: 100%"></div>
   </div>
 </template>

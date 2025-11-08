@@ -17,4 +17,34 @@
     filter: drop-shadow(-2px 4px 6px rgba(0, 0, 0, 0.2));
     padding: 18px;
   }
+  
+  /*.DocSearch-Button {*/
+  /*  -webkit-backdrop-filter: saturate(180%) blur(20px);*/
+  /*  backdrop-filter: saturate(180%) blur(20px);*/
+  /*  background-color: rgba(255, 255, 255, 0);*/
+  /*}*/
+  
+  /*  .VPFeature {
+      border: 1px solid transparent;
+      box-shadow: 0 10px 30px 0 rgb(0 0 0 / 15%);
+      background-color: transparent;
+    }*/
+  
+  .VPNavBar .content-body {
+    background-image: radial-gradient(transparent 1px, #141414 1px);
+    background-size: 4px 4px;
+    backdrop-filter: saturate(50%) blur(4px);
+    -webkit-backdrop-filter: saturate(50%) blur(4px);
+    background-color: rgba(255, 255, 255, 0);
+  }
+  
+  @media (min-width: 960px) {
+    .VPNavBar:not(.home.top) .content-body {
+      background-image: radial-gradient(transparent 1px, #141414 1px);
+      background-size: 4px 4px;
+      backdrop-filter: saturate(50%) blur(4px);
+      -webkit-backdrop-filter: saturate(50%) blur(4px);
+      background-color: rgba(255, 255, 255, 0);
+    }
+  }
 }

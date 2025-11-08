@@ -1,61 +1,18 @@
 <script setup lang="ts">
+import { useResizableBox } from './useResizableBox'
+
 const resizableDiv = useTemplateRef('resizableDiv')
-const divWidth = ref(0)
-const isResizing = ref(false)
-const isTouchActive = ref(false)
 
-// 开始调整宽度
-const startResize = (e) => {
-  isResizing.value = true
-  document.addEventListener('mousemove', resize)
-  document.addEventListener('mouseup', stopResize)
-  e.preventDefault() // 防止文本选择
-}
-
-// 调整宽度
-const resize = (e) => {
-  if (!isResizing.value) return
-  
-  divWidth.value = e.clientX - resizableDiv.value.getBoundingClientRect().left
-}
-
-// 停止调整
-const stopResize = () => {
-  isResizing.value = false
-  document.removeEventListener('mousemove', resize)
-  document.removeEventListener('mouseup', stopResize)
-}
-
-// 移动端：开始调整宽度
-const startResizeTouch = (e) => {
-  isResizing.value = true
-  isTouchActive.value = true
-  document.addEventListener('touchmove', resizeTouch)
-  document.addEventListener('touchend', stopResizeTouch)
-  e.preventDefault()
-}
-
-// 移动端：调整宽度
-const resizeTouch = (e) => {
-  if (!isResizing.value) return
-  
-  const touch = e.touches[0]
-  divWidth.value = touch.clientX - resizableDiv.value.getBoundingClientRect().left
-}
-
-// 移动端：停止调整
-const stopResizeTouch = () => {
-  isResizing.value = false
-  isTouchActive.value = false
-  document.removeEventListener('touchmove', resizeTouch)
-  document.removeEventListener('touchend', stopResizeTouch)
-}
+const {
+  width,
+  startResize
+} = useResizableBox(resizableDiv)
 
 // 组件挂载时设置初始宽度
 onMounted(() => {
   nextTick(() => {
     if (resizableDiv.value) {
-      divWidth.value = resizableDiv.value.getBoundingClientRect().width
+      width.value = resizableDiv.value.getBoundingClientRect().width
     }
   })
 })
@@ -66,13 +23,13 @@ onMounted(() => {
   <div
     ref="resizableDiv"
     class="resizable-box"
-    :style="{ width: divWidth? divWidth + 'px': '' }"
+    :style="{ width: width? width + 'px': '' }"
   >
     <!--蓝色手柄-->
     <div
       class="resizable-btn"
       @mousedown="startResize"
-      @touchstart="startResizeTouch"
+      @touchstart="startResize"
       @touchmove.prevent></div>
     
     <slot/>
