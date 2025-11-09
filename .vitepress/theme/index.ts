@@ -6,8 +6,8 @@ import Layout from './Layout.vue'
 import 'virtual:group-icons.css';
 import 'element-plus/dist/index.css';
 import 'element-plus/theme-chalk/dark/css-vars.css';
-import './style/style.css';
-import './style/overrides.css';
+import './style/style.scss';
+import './style/overrides.scss';
 
 export default {
   extends: DefaultTheme,

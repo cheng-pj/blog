@@ -1,46 +1,46 @@
 /**
- * Customize default theme styling by overriding css variables:
+ * 通过覆盖 css 变量来自定义默认主题样式：
  * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
  */
 
 /**
  * Colors
  *
- * Each colors have exact same color scale system with 3 levels of solid
- * colors with different brightness, and 1 soft color.
+ * 每种颜色都有完全相同的色标系统，具有 3 级纯色
+ * 不同亮度的颜色，以及 1 种柔和的颜色。
  *
- * - `XXX-1`: The most solid color used mainly for colored text. It must
- *   satisfy the contrast ratio against when used on top of `XXX-soft`.
+ * - “XXX-1”：主要用于彩色文本的最纯色。它必须
+ * 满足在“XXX-soft”之上使用时的对比度。
  *
- * - `XXX-2`: The color used mainly for hover state of the button.
+ * - “XXX-2”：主要用于按钮悬停状态的颜色。
  *
- * - `XXX-3`: The color for solid background, such as bg color of the button.
- *   It must satisfy the contrast ratio with pure white (#ffffff) text on
- *   top of it.
+ * - 'XXX-3'：纯色背景的颜色，例如按钮的背景颜色。
+ * 必须满足纯白色（#ffffff）文本的对比度
+ * 顶部。
  *
- * - `XXX-soft`: The color used for subtle background such as custom container
- *   or badges. It must satisfy the contrast ratio when putting `XXX-1` colors
- *   on top of it.
+ * - “XXX-soft”：用于自定义容器等微妙背景的颜色
+ * 或徽章。在放置“XXX-1”颜色时必须满足对比度
+ * 在它上面。
  *
- *   The soft color must be semi transparent alpha channel. This is crucial
- *   because it allows adding multiple "soft" colors on top of each other
- *   to create a accent, such as when having inline code block inside
- *   custom containers.
+ * 柔和的颜色必须是半透明的 alpha 通道。这是至关重要的
+ * 因为它允许在彼此之上添加多种“柔和”颜色
+ * 创建重音，例如当内部有内联代码块时
+ * 定制容器。
  *
- * - `default`: The color used purely for subtle indication without any
- *   special meanings attached to it such as bg color for menu hover state.
+ * - 'default'：纯粹用于微妙指示的颜色，没有任何
+ * 附加的特殊含义，例如菜单悬停状态的背景颜色。
  *
- * - `brand`: Used for primary brand colors, such as link text, button with
- *   brand theme, etc.
+ * - 'brand'：用于主要品牌颜色，例如链接文本、带有
+ * 品牌主题等
  *
- * - `tip`: Used to indicate useful information. The default theme uses the
- *   brand color for this by default.
+ * - 'tip'：用于指示有用的信息。默认主题使用
+ * 默认情况下的品牌颜色。
  *
- * - `warning`: Used to indicate warning to the users. Used in custom
- *   container, badges, etc.
+ * - 'warning'：用于向用户表示警告。用于定制
+ * 容器、徽章等。
  *
- * - `danger`: Used to show error, or dangerous message to the users. Used
- *   in custom container, badges, etc.
+ * - 'danger'：用于向用户显示错误或危险消息。使用
+ * 在自定义容器、徽章等中。
  * -------------------------------------------------------------------------- */
 
 :root {
@@ -48,26 +48,49 @@
   --vp-c-default-2: var(--vp-c-gray-2);
   --vp-c-default-3: var(--vp-c-gray-3);
   --vp-c-default-soft: var(--vp-c-gray-soft);
-
+  
   --vp-c-brand-1: var(--vp-c-indigo-1);
   --vp-c-brand-2: var(--vp-c-indigo-2);
   --vp-c-brand-3: var(--vp-c-indigo-3);
   --vp-c-brand-soft: var(--vp-c-indigo-soft);
-
+  
+  /* DEPRECATED: Use `--vp-c-brand-1` instead. */
+  --vp-c-brand: var(--vp-c-brand-1);
+  
   --vp-c-tip-1: var(--vp-c-brand-1);
   --vp-c-tip-2: var(--vp-c-brand-2);
   --vp-c-tip-3: var(--vp-c-brand-3);
   --vp-c-tip-soft: var(--vp-c-brand-soft);
-
+  
+  --vp-c-note-1: var(--vp-c-brand-1);
+  --vp-c-note-2: var(--vp-c-brand-2);
+  --vp-c-note-3: var(--vp-c-brand-3);
+  --vp-c-note-soft: var(--vp-c-brand-soft);
+  
+  --vp-c-success-1: var(--vp-c-green-1);
+  --vp-c-success-2: var(--vp-c-green-2);
+  --vp-c-success-3: var(--vp-c-green-3);
+  --vp-c-success-soft: var(--vp-c-green-soft);
+  
+  --vp-c-important-1: var(--vp-c-purple-1);
+  --vp-c-important-2: var(--vp-c-purple-2);
+  --vp-c-important-3: var(--vp-c-purple-3);
+  --vp-c-important-soft: var(--vp-c-purple-soft);
+  
   --vp-c-warning-1: var(--vp-c-yellow-1);
   --vp-c-warning-2: var(--vp-c-yellow-2);
   --vp-c-warning-3: var(--vp-c-yellow-3);
   --vp-c-warning-soft: var(--vp-c-yellow-soft);
-
+  
   --vp-c-danger-1: var(--vp-c-red-1);
   --vp-c-danger-2: var(--vp-c-red-2);
   --vp-c-danger-3: var(--vp-c-red-3);
   --vp-c-danger-soft: var(--vp-c-red-soft);
+  
+  --vp-c-caution-1: var(--vp-c-red-1);
+  --vp-c-caution-2: var(--vp-c-red-2);
+  --vp-c-caution-3: var(--vp-c-red-3);
+  --vp-c-caution-soft: var(--vp-c-red-soft);
 }
 
 /**
@@ -97,7 +120,7 @@
     #bd34fe 30%,
     #41d1ff
   );
-
+  
   --vp-home-hero-image-background-image: linear-gradient(
     -45deg,
     #bd34fe 50%,
@@ -116,24 +139,5 @@
   :root {
     --vp-home-hero-image-filter: blur(68px);
   }
-}
-
-/**
- * Component: Custom Block
- * -------------------------------------------------------------------------- */
-
-:root {
-  --vp-custom-block-tip-border: transparent;
-  --vp-custom-block-tip-text: var(--vp-c-text-1);
-  --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
-  --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
-}
-
-/**
- * Component: Algolia
- * -------------------------------------------------------------------------- */
-
-.DocSearch {
-  --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
 

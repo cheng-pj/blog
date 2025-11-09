@@ -3,14 +3,18 @@
     background-color: var(--vp-c-bg);
   }
   
-  .custom-block.demo .custom-block-title {
-    color: var(--vp-custom-block-details-text);
-  }
-  
   .custom-block.demo {
     border-color: var(--vp-custom-block-details-border);
     color: var(--vp-custom-block-details-text);
     background-color: var(--vp-custom-block-details-bg);
+    
+    .custom-block-title {
+      color: var(--vp-custom-block-details-text);
+    }
+    
+    .demo-content {
+      line-height: normal;
+    }
   }
   
   .VPHero .VPImage {
@@ -18,20 +22,23 @@
     padding: 18px;
   }
   
-  /*.DocSearch-Button {*/
-  /*  -webkit-backdrop-filter: saturate(180%) blur(20px);*/
-  /*  backdrop-filter: saturate(180%) blur(20px);*/
-  /*  background-color: rgba(255, 255, 255, 0);*/
-  /*}*/
+  .DocSearch-Button {
+    border: 1px solid var(--vp-c-divider);
+    transition: border-color .3s;
+    
+    &:hover {
+      border: 1px solid var(--vp-c-brand);
+    }
+  }
   
-  /*  .VPFeature {
-      border: 1px solid transparent;
-      box-shadow: 0 10px 30px 0 rgb(0 0 0 / 15%);
-      background-color: transparent;
-    }*/
+  .VPLocalNav.has-sidebar {
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    background-color: rgb(255, 255, 255, 0.5);
+  }
   
   .VPNavBar .content-body {
-    background-image: radial-gradient(transparent 1px, #141414 1px);
+    background-image: radial-gradient(transparent 1px, var(--vp-c-bg) 1px);
     background-size: 4px 4px;
     backdrop-filter: saturate(50%) blur(4px);
     -webkit-backdrop-filter: saturate(50%) blur(4px);
@@ -40,11 +47,15 @@
   
   @media (min-width: 960px) {
     .VPNavBar:not(.home.top) .content-body {
-      background-image: radial-gradient(transparent 1px, #141414 1px);
+      background-image: radial-gradient(transparent 1px, var(--vp-c-bg) 1px);
       background-size: 4px 4px;
       backdrop-filter: saturate(50%) blur(4px);
       -webkit-backdrop-filter: saturate(50%) blur(4px);
       background-color: rgba(255, 255, 255, 0);
     }
   }
+}
+
+.dark .VPLocalNav.has-sidebar {
+  background-color: rgb(27, 27, 31, 0);
 }

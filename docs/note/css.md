@@ -625,26 +625,6 @@ a{Click me}
 
 **Note:** 图标大小应基于 48px，例如 48px、96px、144px 和 192px
 
-### 修改 input placeholder 文字颜色
-
-```css
-::-webkit-input-placeholder {
-  color: red;
-}
-
-:-moz-placeholder {/* Firefox 18- */
-  color: red;
-}
-
-::-moz-placeholder{/* Firefox 19+ */
- color: red;
-}
-
-:-ms-input-placeholder {
-  color: red;
-}
-```
-
 ## 箭头
 
 ```css
@@ -672,44 +652,7 @@ a{Click me}
 }
 ```
 
-## 超出文本隐藏
-
-```css
-.text-overflow-ellipsis {
-	display: block !important;
-	white-space: nowrap !important;
-	text-overflow: ellipsis !important;
-	overflow: hidden !important;
-}
-
-.text-overflow-line-ellipsis {
-	overflow: hidden; /* 隐藏溢出部分 */
-	text-overflow: ellipsis; /* 显示省略符号来代表被隐藏的文本 */
-	display: -webkit-box !important; /* 将对象作为弹性伸缩盒子模型显示 */
-	-webkit-box-orient: vertical; /* 设置盒子内排列顺序为纵向 */
-	-webkit-line-clamp: 2; /* 限制块元素显示的文本的行数 */
-}
-```
-
 ## 微软输入框样式
-
-```css
-.a {
-  border-bottom: 2px solid var(--cr-input-focus-color);
-  border-radius: var(--cr-input-underline-border-radius, 0);
-  bottom: 0;
-  box-sizing: border-box;
-  display: var(--cr-input-underline-display);
-  height: var(--cr-input-underline-height, 0);
-  left: 0;
-  margin: auto;
-  opacity: 1;
-  position: absolute;
-  right: 0;
-  transition: opacity 120ms ease-out, width 0s linear 180ms;
-  width: 100%;
-}
-```
 
 ## 动画优化
 
@@ -718,26 +661,6 @@ a{Click me}
 > https://developer.mozilla.org/zh-CN/docs/Web/CSS/will-change
 
 [CSS](https://developer.mozilla.org/zh-CN/docs/Web/CSS) 属性 `will-change` 为 web 开发者提供了一种告知浏览器该元素会有哪些变化的方法，这样浏览器可以在元素属性真正发生变化之前提前做好对应的优化准备工作。这种优化可以将一部分复杂的计算工作提前准备好，使页面的反应更为快速灵敏。
-
-### 渐变文字
-
-```css
-.a {
-  background: linear-gradient(180deg, #fff, #ffffff4f);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-```
-
-### 渐变按钮
-
-```css
-.a {
-  background: radial-gradient(141.42% 141.42% at 100% 0%, #fff6, #fff0), radial-gradient(140.35% 140.35% at 100% 94.74%, #bd34fe, #bd34fe00), radial-gradient(89.94% 89.94% at 18.42% 15.79%, #41d1ff, #41d1ff00);
-  box-shadow: 0 1px #ffffffbf inset;
-}
-```
 
 ## overscroll-behavior
 

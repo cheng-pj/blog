@@ -70,4 +70,20 @@
 <<< ./components/BeforeAndAfter.vue
 :::
 
+## `input` 输入框占位符样式修改
+::: demo InputPlaceholder.vue
+<InputPlaceholder/>
+:::
 
+::: details 点击查看代码
+<<< ./components/InputPlaceholder.vue
+:::
+
+## 渐变颜色效果
+::: demo LinearGradient.vue
+<LinearGradient/>
+:::
+
+::: details 点击查看代码
+<<< ./components/LinearGradient.vue {9-12}
+:::
