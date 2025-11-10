@@ -5,6 +5,7 @@ const Example: DefaultTheme.NavItemWithLink[] = [
   { text: '图表', link: '/docs/example/charts/index.md' },
   { text: 'Element UI', link: '/docs/example/element-ui/index.md' },
   { text: 'HTML+CSS', link: '/docs/example/css/index.md' },
+  { text: 'Grid Stack', link: '/docs/example/gridstack/index.md' },
   { text: 'JavaScript', link: '/docs/example/javascript/index.md' }
 ]
 

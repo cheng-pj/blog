@@ -1,6 +1,7 @@
 :root {
   .vp-doc div[class*='language-'] {
     background-color: var(--vp-c-bg);
+    border: 1px solid var(--vp-c-gutter);
   }
   
   .custom-block.demo {
