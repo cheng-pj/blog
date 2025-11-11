@@ -14,72 +14,9 @@ title: grid stack
 <<< ./components/GridLayout.vue
 :::
 
-```js
-function addEvents(grid, id) {
-  let g = (id !== undefined ? 'grid' + id : '')
-  
-  grid.on('added removed change', function (event, items) {
-    let str = ''
-    items.forEach(function (item) {
-      str += ' (' + item.x + ',' + item.y + ' ' + item.w + 'x' + item.h + ')'
-    })
-    console.log((g || items[0].grid.opts.id) + ' ' + event.type + ' ' + items.length + ' items (x,y w h):' + str)
-  })
-  grid.on('enable', function (event) {
-    let el = event.target
-    console.log((g || el.gridstackNode.grid.opts.id) + ' enable')
-  })
-  grid.on('disable', function (event) {
-    let el = event.target
-    console.log((g || el.gridstackNode.grid.opts.id) + ' disable')
-  })
-  grid.on('dragstart', function (event, el) {
-    let n = el.gridstackNode
-    let x = el.getAttribute('gs-x') // verify node (easiest) and attr are the same
-    let y = el.getAttribute('gs-y')
-    console.log((g || el.gridstackNode.grid.opts.id) + ' dragstart ' + (n.content || '') + ' pos: (' + n.x + ',' + n.y + ') = (' + x + ',' + y + ')')
-  })
-  grid.on('drag', function (event, el) {
-    let n = el.gridstackNode
-    let x = el.getAttribute('gs-x') // verify node (easiest) and attr are the same
-    let y = el.getAttribute('gs-y')
-    console.log((g || el.gridstackNode.grid.opts.id) + ' drag ' + (n.content || '') + ' pos: (' + n.x + ',' + n.y + ') = (' + x + ',' + y + ')');
-  })
-  grid.on('dragstop', function (event, el) {
-    let n = el.gridstackNode
-    let x = el.getAttribute('gs-x') // verify node (easiest) and attr are the same
-    let y = el.getAttribute('gs-y')
-    console.log((g || el.gridstackNode.grid.opts.id) + ' dragstop ' + (n.content || '') + ' pos: (' + n.x + ',' + n.y + ') = (' + x + ',' + y + ')')
-  })
-  grid.on('dropped', function (event, previousNode, newNode) {
-    if (previousNode) {
-      console.log((g || previousNode.grid.opts.id) + ' dropped - Removed widget from grid:', previousNode)
-    }
-    if (newNode) {
-      console.log((g || newNode.grid.opts.id) + ' dropped - Added widget in grid:', newNode)
-    }
-  })
-  grid.on('resizestart', function (event, el) {
-    let n = el.gridstackNode
-    let rec = el.getBoundingClientRect()
-    console.log(`${g || el.gridstackNode.grid.opts.id} resizestart ${n.content || ''} size: (${n.w}x${n.h}) = (${Math.round(rec.width)}x${Math.round(rec.height)})px`)
-  })
-  grid.on('resize', function (event, el) {
-    let n = el.gridstackNode
-    let rec = el.getBoundingClientRect()
-    console.log(`${g || el.gridstackNode.grid.opts.id} resize ${n.content || ''} size: (${n.w}x${n.h}) = (${Math.round(rec.width)}x${Math.round(rec.height)})px`)
-  })
-  grid.on('resizestop', function (event, el) {
-    let n = el.gridstackNode
-    let rec = el.getBoundingClientRect()
-    console.log(`${g || el.gridstackNode.grid.opts.id} resizestop ${n.content || ''} size: (${n.w}x${n.h}) = (${Math.round(rec.width)}x${Math.round(rec.height)})px`)
-  })
-}
-```
-
 ## 出现的问题
 
-```
+```shell
 Cannot find module 'D:\Workspace\cpj_vite_press\node_modules\gridstack\dist\gridstack-engine' imported from D:\Workspace\cpj_vite_press\node_modules\gridstack\dist\gridstack.js
 Error [ERR_MODULE_NOT_FOUND]: Cannot find module 'D:\Workspace\cpj_vite_press\node_modules\gridstack\dist\gridstack-engine' imported from D:\Workspace\cpj_vite_press\node_modules\gridstack\dist\gridstack.js
     at finalizeResolution (node:internal/modules/esm/resolve:283:11)
@@ -97,7 +34,7 @@ Error [ERR_MODULE_NOT_FOUND]: Cannot find module 'D:\Workspace\cpj_vite_press\no
 问题很可能是在 Vite 构建过程（VitePress 使用的）试图在它本不应该的 Node.js 上下文中处理 GridStack 文件。您可以配置 Vite 在其服务端渲染或构建时处理过程中忽略这些依赖。
 
 在您的 Vite 配置文件（通常是 docs/.vitepress/config.ts 或 vite.config.ts）中添加或修改 ssr 配置：
-```js {vite.config.ts}
+```js [vite.config.ts]
 // vite.config.ts 或 docs/.vitepress/config.ts
 import { defineConfig } from 'vite'
 
@@ -120,7 +57,7 @@ export default defineConfig({
 
 如果您正在使用 TypeScript，它的模块解析方式可能会加剧这个问题。您可以调整您的 `tsconfig.json` 以使用与 Vite 等构建工具工作方式更兼容的解析策略。
 
-```json {tsconfig.json}
+```json [tsconfig.json]
 {
 	"compilerOptions": {
 		"moduleResolution": "bundler"

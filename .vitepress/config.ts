@@ -4,7 +4,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vitepress'
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
-import { Nav, Sidebar } from './themeConfig'
+import { Nav, Sidebar } from './pageConfig'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -12,6 +12,7 @@ export default defineConfig({
   description: 'A VitePress Site',
   cleanUrls: true,
   base: '/blog/',
+  appearance: 'dark', // 默认首选dark, 除非用户手动切换
   themeConfig: {
     search: {
       provider: 'local'
@@ -48,9 +49,10 @@ export default defineConfig({
     skipToContentLabel: '跳转到内容'
   },
   markdown: {
+    // theme: 'github-dark',
     lineNumbers: true,
     image: {
-      lazyLoading: true  // 所有图片自动懒加载
+      lazyLoading: true // 所有图片自动懒加载
     },
     config(md) {
       md.use(groupIconMdPlugin)
@@ -81,7 +83,7 @@ export default defineConfig({
       }
     },
     plugins: [
-      // 由于vite.themeConfig.ts 是被 .vitepress/themeConfig.ts 所包含，所以dirs的目录需要从config.ts中进行查找
+      // 由于vite.pageConfig.ts 是被 .vitepress/pageConfig.ts 所包含，所以dirs的目录需要从config.ts中进行查找
       Components({
         dts: true,
         dirs: [

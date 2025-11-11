@@ -25,7 +25,6 @@ onMounted(() => {
     float: true,
   })
   
-  
   grid.value.on('dragstart', function (event, el) {
     isDrag.value = true
   })
@@ -76,6 +75,10 @@ onMounted(() => {
       </div>
     </div>
   </div>
+  
+  <div>
+  
+  </div>
 </template>
 
 <style scoped lang="scss">
@@ -111,7 +114,7 @@ onMounted(() => {
     background-position-y: 10px;
     transition: all 0.3s ease-in-out;
     z-index: 0;
-    opacity: 1;
+    opacity: 0;
   }
   
   &.drag-edit:after {
