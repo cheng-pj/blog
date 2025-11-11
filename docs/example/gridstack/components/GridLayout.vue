@@ -22,7 +22,7 @@ onMounted(() => {
      */
     layout: 'move',
     // disableResize: true,
-    float: true
+    float: true,
   })
   
   
@@ -46,17 +46,26 @@ onMounted(() => {
 
 <template>
   <div class="container-container">
-    <div class="grid-stack-grid"></div>
     <div class="grid-stack-wrapper" :class="{ 'drag-edit': isDrag }">
       <div class="grid-stack">
-        <div class="grid-stack-item ui-resizable-autohide" gs-w="3" gs-h="3">
+        <div
+          class="grid-stack-item ui-resizable-autohide"
+          gs-w="3"
+          gs-h="3"
+        >
           <div class="grid-stack-item-content">
             <div class="card-header">滑动到标题拖拽</div>
             <div class="card-content">面板的其余内容不会拖动</div>
           </div>
         </div>
         
-        <div class="grid-stack-item ui-resizable-autohide" gs-h="3" gs-w="3">
+        <div
+          class="grid-stack-item ui-resizable-autohide"
+          gs-h="3"
+          gs-w="6"
+          gs-x="1"
+          gs-y="3"
+        >
           <div class="grid-stack-item-content">
             <div class="card-header">滑动到标题拖拽</div>
             <div class="card-content">面板的其余内容不会拖动</div>
@@ -71,46 +80,41 @@ onMounted(() => {
 .container-container {
   --gutter: 10px; /*间隔10px*/
   --cell-height: v-bind(cellHeight); /*行高*/
+  
   min-width: 500px;
   height: 500px;
   overflow: auto;
   position: relative;
-}
-
-.grid-stack-grid {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 50px;
-  background: #3daef4;
-  gap: 10px;
+  background-color: #f7f8fa;
 }
 
 .grid-stack-wrapper {
-  width: 100%;
+  background: #f7f8fa;
   min-height: 100%;
   padding: 5px;
-  background-color: #edeff2;
-  background-image: linear-gradient(0deg, #edeff2 var(--gutter), transparent 0.1em),
-  linear-gradient(90deg, #edeff2 var(--gutter), transparent 0.1em);
-  background-size: calc((100% / 12) - 0.8px) var(--cell-height);
-  background-attachment: local, scroll;
-  background-position-y: 10px;
-  transition: all 0.3s ease-in-out;
-}
-
-.drag-edit {
-  background-color: #edeff2;
-  background-image: linear-gradient(0deg, #f7f8fa var(--gutter), transparent 0.1em),
-  linear-gradient(90deg, #f7f8fa var(--gutter), transparent 0.1em);
-  background-size: calc((100% / 12) - 0.8px) var(--cell-height);
-  background-attachment: local, scroll;
-  background-position-y: 10px;
+  position: relative;
+  
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #edeff2;
+    background-image: linear-gradient(0deg, #f7f8fa var(--gutter), transparent 0.1em),
+    linear-gradient(90deg, #f7f8fa var(--gutter), transparent 0.1em);
+    background-size: calc((100% / 12) - calc(10px / 12)) var(--cell-height);
+    background-attachment: local, scroll;
+    background-position-y: 10px;
+    transition: all 0.3s ease-in-out;
+    z-index: 0;
+    opacity: 1;
+  }
+  
+  &.drag-edit:after {
+    opacity: 1;
+  }
 }
 
 .grid-stack {
@@ -125,6 +129,7 @@ onMounted(() => {
   box-shadow: 0 1px 2px 0 #2d2d2e33, 0 0 2px 0 #2d2d2e0d;
   transition: box-shadow .2s ease;
   cursor: move;
+  color: #333333;
   
   &:hover {
     box-shadow: 0 12px 10px 0 rgba(31, 31, 31, .1), 0 0 2px 0 rgba(31, 31, 31, .2);
@@ -133,7 +138,7 @@ onMounted(() => {
 
 :deep(.grid-stack-animate) {
   .grid-stack-item.grid-stack-placeholder {
-    z-index: 0;
+    z-index: 1;
     transition: left .2s, top .2s, height .2s, width .2s !important;
   }
 }
