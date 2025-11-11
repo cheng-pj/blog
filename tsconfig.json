@@ -10,11 +10,12 @@
     "resolveJsonModule": true,
     "verbatimModuleSyntax": true,
 		"noImplicitAny": false,
-    "jsx": "preserve",
+		"jsx": "preserve",
+		"jsxImportSource": "vue",
     "lib": ["esnext", "dom", "dom.iterable"],
 		"exclude": [
 			"**/dist/**",
 			"**/node_modules/**"
-		]
+		],
   }
 }

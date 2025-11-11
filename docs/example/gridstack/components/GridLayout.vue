@@ -1,6 +1,7 @@
-<script setup lang="ts">
+<script setup lang="tsx">
 import 'gridstack/dist/gridstack.min.css'
 import { GridStack } from 'gridstack'
+import { render } from 'vue'
 
 const isDrag = ref(false)
 const grid = ref<GridStack>()
@@ -23,24 +24,66 @@ onMounted(() => {
     layout: 'move',
     // disableResize: true,
     float: true,
+    acceptWidgets: true
   })
   
-  grid.value.on('dragstart', function (event, el) {
-    isDrag.value = true
-  })
+  gridEvent()
   
-  grid.value.on('dragstop', function (event, el) {
-    isDrag.value = false
-  })
+  const itemVNode = () => {
+    return (
+      <div class="grid-stack-item">
+        <div class="grid-stack-item-content">
+          <p>
+            Vue Grid Item
+          </p>
+        </div>
+      </div>
+    )
+  }
   
-  grid.value.on('resizestart', function (event, el) {
-    isDrag.value = true
-  })
-  
-  grid.value.on('resizestop', function (event, el) {
-    isDrag.value = false
-  })
+  // 监听添加或删除的回调
+  GridStack.addRemoveCB = (parent, w, add, grid) => {
+    console.info('监听添加', { parent, w, add, grid })
+    
+    if (add) {
+      // render(itemVNode, document.createElement('div'))
+      console.log(itemVNode)
+      return itemVNode
+    } else {
+      return
+    }
+  }
 })
+
+
+// grid 监听事件
+const gridEvent = () => {
+  if (!grid.value) return
+  
+  grid.value.on('dragstart', (event, el) => {
+    isDrag.value = true
+  })
+  
+  grid.value.on('dragstop', (event, el) => {
+    isDrag.value = false
+  })
+  
+  grid.value.on('resizestart', (event, el) => {
+    isDrag.value = true
+  })
+  
+  grid.value.on('resizestop', (event, el) => {
+    isDrag.value = false
+  })
+}
+
+// 添加一个小部件
+const addWidget = () => {
+  // grid.value?.load([
+  //   { id: '1', x: 2, y: 1, h: 2, content: 'load 创建' }
+  // ])
+  grid.value?.addWidget({ w: 3, h: 2 })
+}
 </script>
 
 <template>
@@ -51,8 +94,7 @@ onMounted(() => {
           class="grid-stack-item ui-resizable-autohide"
           gs-w="3"
           gs-h="3"
-          min-w="3"
-          min-h="3"
+          gs-minW="3"
         >
           <div class="grid-stack-item-content">
             <div class="card-header">滑动到标题拖拽</div>
@@ -76,9 +118,9 @@ onMounted(() => {
     </div>
   </div>
   
-  <div>
-  
-  </div>
+  <button class="" @click="addWidget">
+    添加
+  </button>
 </template>
 
 <style scoped lang="scss">
@@ -115,29 +157,11 @@ onMounted(() => {
     transition: all 0.3s ease-in-out;
     z-index: 0;
     opacity: 0;
+    pointer-events: none;
   }
   
   &.drag-edit:after {
     opacity: 1;
-  }
-}
-
-.grid-stack {
-  .grid-stack-item {
-    z-index: 1;
-  }
-}
-
-
-.grid-stack-item-content {
-  background-color: #ffffff;
-  box-shadow: 0 1px 2px 0 #2d2d2e33, 0 0 2px 0 #2d2d2e0d;
-  transition: box-shadow .2s ease;
-  cursor: move;
-  color: #333333;
-  
-  &:hover {
-    box-shadow: 0 12px 10px 0 rgba(31, 31, 31, .1), 0 0 2px 0 rgba(31, 31, 31, .2);
   }
 }
 
@@ -148,16 +172,34 @@ onMounted(() => {
   }
 }
 
-/*自定义*/
-.card-header {
-  margin: 0;
-  cursor: move;
-  min-height: 25px;
-  border-bottom: 1px solid #edeff2;
-  padding: 10px 15px;
-}
-
-.card-content {
-  padding: 15px;
+:deep(.grid-stack) {
+  .grid-stack-item {
+    z-index: 1;
+    
+    .grid-stack-item-content {
+      background-color: #ffffff;
+      box-shadow: 0 1px 2px 0 #2d2d2e33, 0 0 2px 0 #2d2d2e0d;
+      transition: box-shadow .2s ease;
+      cursor: move;
+      color: #333333;
+      
+      &:hover {
+        box-shadow: 0 12px 10px 0 rgba(31, 31, 31, .1), 0 0 2px 0 rgba(31, 31, 31, .2);
+      }
+    }
+  }
+  
+  /*自定义*/
+  .card-header {
+    margin: 0;
+    cursor: move;
+    min-height: 25px;
+    border-bottom: 1px solid #edeff2;
+    padding: 10px 15px;
+  }
+  
+  .card-content {
+    padding: 15px;
+  }
 }
 </style>

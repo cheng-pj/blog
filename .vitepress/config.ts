@@ -6,6 +6,8 @@ import { defineConfig } from 'vitepress'
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
 import { Nav, Sidebar } from './pageConfig'
 
+// import vueJsx from '@vitejs/plugin-vue-jsx'
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'cat',
@@ -110,7 +112,8 @@ export default defineConfig({
         customIcon: {
           postcss: 'vscode-icons:file-type-postcss'
         }
-      })
+      }),
+      // vueJsx()
     ]
   }
 })

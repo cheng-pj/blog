@@ -6,8 +6,12 @@ title: grid stack
 该案例全部基于 vue3 开发
 
 ## 在线案例
+
 ::: demo
-  <GridLayout/>
+:::
+
+::: demo
+<GridLayout/>
 :::
 
 ::: details 点击查看代码
