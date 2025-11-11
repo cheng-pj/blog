@@ -73,7 +73,7 @@ export default defineConfig({
   },
   vite: {
     ssr: {
-      noExternal: ['element-plus']
+      noExternal: ['element-plus', 'gridstack']
     },
     server: {
       hmr: {

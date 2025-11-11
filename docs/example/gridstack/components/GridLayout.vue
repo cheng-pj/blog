@@ -52,6 +52,8 @@ onMounted(() => {
           class="grid-stack-item ui-resizable-autohide"
           gs-w="3"
           gs-h="3"
+          min-w="3"
+          min-h="3"
         >
           <div class="grid-stack-item-content">
             <div class="card-header">滑动到标题拖拽</div>
