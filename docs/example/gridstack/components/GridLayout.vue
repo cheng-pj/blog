@@ -2,15 +2,17 @@
 import 'gridstack/dist/gridstack.min.css'
 import { GridStack } from 'gridstack'
 import { render } from 'vue'
-import GridItem from './GridItem.vue'
+// import GridItem from './GridItem.vue'
 
 const isDrag = ref(false)
-const grid = ref<GridStack>()
+// let items = ref([])
 const cellHeight = ref('50px')
+
+let grid: GridStack
 
 onMounted(() => {
   
-  grid.value = GridStack.init({
+  grid = GridStack.init({
     // handle: '.card-header', 指定触发拖拽事件的类名
     column: 12,
     margin: '5px',
@@ -32,13 +34,14 @@ onMounted(() => {
   gridEvent()
   
   // 监听添加或删除的回调
-  GridStack.addRemoveCB = gsAddRemoveVueComponents
+  // GridStack.addRemoveCB = gsAddRemoveVueComponents
 })
 
 const GridStackItem = () => {
   return (
     <div class="grid-stack-item">
       <div class="grid-stack-item-content">
+        <button onClick={removeWidget}></button>
         <p>
           Vue Grid Item
         </p>
@@ -64,31 +67,45 @@ const gsAddRemoveVueComponents = (parent, w, add, grid) => {
 
 // grid 监听事件
 const gridEvent = () => {
-  if (!grid.value) return
+  if (!grid) return
   
-  grid.value.on('dragstart', (event, el) => {
+  grid.on('dragstart', (event, el) => {
     isDrag.value = true
   })
   
-  grid.value.on('dragstop', (event, el) => {
+  grid.on('dragstop', (event, el) => {
     isDrag.value = false
   })
   
-  grid.value.on('resizestart', (event, el) => {
+  grid.on('resizestart', (event, el) => {
     isDrag.value = true
   })
   
-  grid.value.on('resizestop', (event, el) => {
+  grid.on('resizestop', (event, el) => {
     isDrag.value = false
   })
 }
 
 // 添加一个小部件
 const addWidget = () => {
-  // grid.value?.load([
-  //   { id: '1', x: 2, y: 1, h: 2, content: 'load 创建' }
-  // ])
-  grid.value?.addWidget({ w: 3, h: 2 })
+  let count = 1
+  count++
+  const item = { w: 3, h: 2, id: (count).toString() }
+  grid?.addWidget(item)
+  
+  const itemVNode = h(GridStackItem)
+  
+  render(itemVNode, document.createElement('h2'))
+  
+  nextTick(() => {
+    grid?.makeWidget(item.id)
+  })
+}
+
+// 添加一个小部件
+const removeWidget = () => {
+  // grid?.removeWidget()
+  console.log('okokokok')
 }
 </script>
 
