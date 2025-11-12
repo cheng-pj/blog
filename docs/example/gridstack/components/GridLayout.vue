@@ -2,12 +2,14 @@
 import 'gridstack/dist/gridstack.min.css'
 import { GridStack } from 'gridstack'
 import { render } from 'vue'
+import GridItem from './GridItem.vue'
 
 const isDrag = ref(false)
 const grid = ref<GridStack>()
 const cellHeight = ref('50px')
 
 onMounted(() => {
+  
   grid.value = GridStack.init({
     // handle: '.card-header', 指定触发拖拽事件的类名
     column: 12,
@@ -29,32 +31,36 @@ onMounted(() => {
   
   gridEvent()
   
-  const itemVNode = () => {
-    return (
-      <div class="grid-stack-item">
-        <div class="grid-stack-item-content">
-          <p>
-            Vue Grid Item
-          </p>
-        </div>
-      </div>
-    )
-  }
-  
   // 监听添加或删除的回调
-  GridStack.addRemoveCB = (parent, w, add, grid) => {
-    console.info('监听添加', { parent, w, add, grid })
-    
-    if (add) {
-      // render(itemVNode, document.createElement('div'))
-      console.log(itemVNode)
-      return itemVNode
-    } else {
-      return
-    }
-  }
+  GridStack.addRemoveCB = gsAddRemoveVueComponents
 })
 
+const GridStackItem = () => {
+  return (
+    <div class="grid-stack-item">
+      <div class="grid-stack-item-content">
+        <p>
+          Vue Grid Item
+        </p>
+      </div>
+    </div>
+  )
+}
+
+const gsAddRemoveVueComponents = (parent, w, add, grid) => {
+  console.info('监听添加', { parent, w, add, grid })
+  
+  if (add) {
+    const itemVNode = h(GridStackItem)
+    
+    render(itemVNode, document.createElement('h2'))
+    
+    console.log(itemVNode)
+    return itemVNode.el
+  } else {
+    return
+  }
+}
 
 // grid 监听事件
 const gridEvent = () => {
@@ -87,7 +93,9 @@ const addWidget = () => {
 </script>
 
 <template>
-  <div class="container-container">
+  123
+  
+  <div class="container-container" id="abcd">
     <div class="grid-stack-wrapper" :class="{ 'drag-edit': isDrag }">
       <div class="grid-stack">
         <div

@@ -4,9 +4,8 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vitepress'
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 import { Nav, Sidebar } from './pageConfig'
-
-// import vueJsx from '@vitejs/plugin-vue-jsx'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -57,7 +56,9 @@ export default defineConfig({
       lazyLoading: true // 所有图片自动懒加载
     },
     config(md) {
-      md.use(groupIconMdPlugin)
+      md.use(groupIconMdPlugin, {
+        titleBar: { includeSnippet: true }
+      })
       md.use(mdContainer, 'demo', {
         render: (tokens: any, idx: any) => {
           const m = tokens[idx].info.trim().match(/^demo\s+(.*)$/)
@@ -113,7 +114,7 @@ export default defineConfig({
           postcss: 'vscode-icons:file-type-postcss'
         }
       }),
-      // vueJsx()
+      vueJsx()
     ]
   }
 })
