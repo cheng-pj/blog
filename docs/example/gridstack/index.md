@@ -8,6 +8,7 @@ title: grid stack
 ## 在线案例
 
 ::: demo
+<GridItem/>
 :::
 
 ::: demo

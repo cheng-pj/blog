@@ -2,7 +2,7 @@
 import 'gridstack/dist/gridstack.min.css'
 import { GridStack } from 'gridstack'
 import { render } from 'vue'
-// import GridItem from './GridItem.vue'
+// import GridItem from './Jsx1.vue'
 
 const isDrag = ref(false)
 // let items = ref([])
@@ -97,9 +97,9 @@ const addWidget = () => {
   
   render(itemVNode, document.createElement('h2'))
   
-  nextTick(() => {
-    grid?.makeWidget(item.id)
-  })
+  // nextTick(() => {
+  //   grid?.makeWidget(item.id)
+  // })
 }
 
 // 添加一个小部件
@@ -192,14 +192,14 @@ const removeWidget = () => {
 
 :deep(.grid-stack-animate) {
   .grid-stack-item.grid-stack-placeholder {
-    z-index: 1;
+    z-index: 10000;
     transition: left .2s, top .2s, height .2s, width .2s !important;
   }
 }
 
 :deep(.grid-stack) {
   .grid-stack-item {
-    z-index: 1;
+    z-index: 10000;
     
     .grid-stack-item-content {
       background-color: #ffffff;
