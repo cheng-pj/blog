@@ -795,3 +795,31 @@ export default {
 }
 ```
 
+## 根据时间获取周数
+```js
+/**
+ * 出自element date-pick
+ * getWeekNumber(new Date('2025-11-13'))
+ * @param d {Date}
+ * @returns {number|null}
+ */
+export const getWeekNumber = (d) => {
+  if (!isDate(d)) return null
+  const date = new Date(d.getTime())
+  date.setHours(0, 0, 0, 0)
+  // 本周的星期四决定一年。
+  date.setDate(date.getDate() + 3 - (date.getDay() + 6) % 7)
+  // 1 月 4 日总是在第 1 周。
+  const week1 = new Date(date.getFullYear(), 0, 4)
+  // 调整到第 1 周的星期四，并计算从日期到第 1 周的周数。
+  // 对于夏令时来说，舍入应该没问题。它的轮班时间不应超过 12 小时。
+  return 1 + Math.round(((date.getTime() - week1.getTime()) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7)
+}
+
+const isDate = (date) => {
+  if (date === null || date === undefined) return false
+  if (isNaN(new Date(date).getTime())) return false
+  if (Array.isArray(date)) return false // deal with `new Date([ new Date() ]) -> new Date()`
+  return true
+}
+```
