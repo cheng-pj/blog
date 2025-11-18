@@ -10,80 +10,80 @@
 
 通过修改元素伪类样式来实现
 
-::: demo Scrollbar1.vue
-<Scrollbar1/>
+::: demo CssScrollbar1.vue
+<CssScrollbar1/>
 :::
 
 ::: details 点击查看代码
-<<< ./components/Scrollbar1.vue
+<<< ./components/CssScrollbar1.vue
 :::
 
 ## 文字超出隐藏
 
 文本超出隐藏
 
-::: demo OverflowEllipsis.vue
-<OverflowEllipsis/>
+::: demo CssOverflowEllipsis.vue
+<CssOverflowEllipsis/>
 :::
 
 ::: details 点击查看代码
-<<< ./components/OverflowEllipsis.vue
+<<< ./components/CssOverflowEllipsis.vue
 :::
 
 使用`display: flex`布局，响应式文字超出隐藏
 
-::: demo FlexLayoutOverflowEllipsis.vue
-<FlexLayoutOverflowEllipsis/>
+::: demo CssFlexLayoutOverflowEllipsis.vue
+<CssFlexLayoutOverflowEllipsis/>
 :::
 
 ::: details 点击查看代码
-<<< ./components/FlexLayoutOverflowEllipsis.vue
+<<< ./components/CssFlexLayoutOverflowEllipsis.vue
 :::
 
 ## 毛玻璃效果
 
 ### Demo 1
-::: demo Glass1.vue
+::: demo CssGlass1.vue
 <Glass1/>
 :::
 
 ::: details 点击查看代码
-<<< ./components/Glass1.vue {23-25}
+<<< ./components/CssGlass1.vue {23-25}
 :::
 
 ### Demo 2
-::: demo Glass2.vue
+::: demo CssGlass2.vue
 <Glass2/>
 :::
 
 ::: details 点击查看代码
-<<< ./components/Glass2.vue {23-25}
+<<< ./components/CssGlass2.vue {23-25}
 :::
 
 ## 伪类实现自定义复选框
 
-::: demo BeforeAndAfter.vue
-<BeforeAndAfter/>
+::: demo CssBeforeAndAfter.vue
+<CssBeforeAndAfter/>
 :::
 
 ::: details 点击查看代码
-<<< ./components/BeforeAndAfter.vue
+<<< ./components/CssBeforeAndAfter.vue
 :::
 
 ## `input` 输入框占位符样式修改
-::: demo InputPlaceholder.vue
-<InputPlaceholder/>
+::: demo CssInputPlaceholder.vue
+<CssInputPlaceholder/>
 :::
 
 ::: details 点击查看代码
-<<< ./components/InputPlaceholder.vue
+<<< ./components/CssInputPlaceholder.vue
 :::
 
 ## 渐变颜色效果
-::: demo LinearGradient.vue
-<LinearGradient/>
+::: demo CssLinearGradient.vue
+<CssLinearGradient/>
 :::
 
 ::: details 点击查看代码
-<<< ./components/LinearGradient.vue {9-12}
+<<< ./components/CssLinearGradient.vue {9-12}
 :::

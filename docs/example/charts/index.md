@@ -4,9 +4,9 @@
 > [ResizeObserver](https://developer.mozilla.org/zh-CN/docs/Web/API/ResizeObserver) 参考 
 
 ::: demo
-<ResizeObserver/>
+<ChartResizeObserver/>
 :::
 
 ::: details 点击查看代码
-<<< ./components/ResizeObserver.vue
+<<< ./components/ChartResizeObserver.vue
 :::
