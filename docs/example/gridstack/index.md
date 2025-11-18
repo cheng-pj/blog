@@ -8,15 +8,15 @@ title: grid stack
 ## 在线案例
 
 ::: demo
-<GridItem/>
+<GsGridItem/>
 :::
 
 ::: demo
-<GridLayout/>
+<GsGridLayout/>
 :::
 
 ::: details 点击查看代码
-<<< ./components/GridLayout.vue
+<<< ./components/GsGridLayout.vue
 :::
 
 ## 出现的问题

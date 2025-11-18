@@ -10,6 +10,6 @@ title: element el-select
 :::
 
 ::: details 点击查看代码
-<<< ./components/EleDemoElSelectMul.vue
+<<< ./components/ElSelectMul.vue
 :::
 
