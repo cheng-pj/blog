@@ -87,3 +87,5 @@
 ::: details 点击查看代码
 <<< ./components/CssLinearGradient.vue {9-12}
 :::
+
+## `:focus-within` 伪类元素
